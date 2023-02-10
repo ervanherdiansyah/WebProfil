@@ -9,27 +9,27 @@
 
     <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="col-lg-2 col-md-6">
+        <div class="col-lg-2 col-md-6 col-sm-6">
             <div class="service-item position-relative">
                 <a href="{{url('/tentang/organisasi/struktur')}}" class="stretched-link"><h3>Struktur Organisasi</h3></a>
             </div>
         </div><!-- End Service Item -->
-        <div class="col-lg-2 col-md-6">
+        <div class="col-lg-2 col-md-6 col-sm-6">
             <div class="service-item  position-relative">
                 <a href="{{url('/tentang/organisasi/profil')}}" class="stretched-link"><h3>Profil Pimpinan</h3></a>
             </div>
         </div><!-- End Service Item -->
-        <div class="col-lg-2 col-md-6">
+        <div class="col-lg-2 col-md-6 col-sm-6">
             <div class="service-item  position-relative">
                 <a href="{{url('/tentang/organisasi/ra')}}" class="stretched-link"><h3>Raudhatul Athfal</h3></a>
             </div>
         </div><!-- End Service Item -->
-        <div class="col-lg-2 col-md-6">
+        <div class="col-lg-2 col-md-6 col-sm-6">
             <div class="service-item  position-relative">
                 <a href="{{url('/tentang/organisasi/mts')}}" class="stretched-link"><h3>Madrasah Tsanawiyah</h3></a>
             </div>
         </div><!-- End Service Item -->
-        <div class="col-lg-2 col-md-6">
+        <div class="col-lg-2 col-md-6 col-sm-6">
             <div class="service-item  position-relative">
                 <a href="{{url('/tentang/organisasi/sma')}}" class="stretched-link"><h3>Sekolah Menengah Atas</h3></a>
             </div>

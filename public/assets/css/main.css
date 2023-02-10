@@ -926,14 +926,29 @@ section {
   font-size: 20px;
 }
 
-.struktur .foto-struktur{
-  margin-bottom: -200px;
+@media (min-width: 1280px) {
+  .struktur .foto-struktur{
+    margin-bottom: -200px;
+  }
+
+  .struktur .foto-struktur img{
+    height: 65%;
+    margin-top: -20px;
+  }
 }
 
-.struktur .foto-struktur img{
-  height: 75%;
-  margin-top: -20px;
+@media (max-width: 600px) {
+  .struktur .foto-struktur{
+    margin-bottom: -40px;
+  }
+
+  .struktur .foto-struktur img{
+    height: 90%;
+    margin-top: -20px;
+  }
 }
+
+
 
 .struktur .struktur-update p{
   color: black;
