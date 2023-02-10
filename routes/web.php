@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\landing\HomeController;
 use App\Http\Controllers\dashboard\DashboardController;
 use App\Http\Controllers\dashboard\BeritaController;
+use App\Http\Controllers\dashboard\PengaturanController;
 use App\Http\Controllers\login\AuthController;
 use App\Http\Controllers\landing\tentang\SelayangController;
 use App\Http\Controllers\landing\tentang\OrganisasiController;
@@ -184,8 +185,17 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/berita/edit/kategori/{id}', [BeritaController::class, 'editkategori']);
         Route::post('/berita/update/kategori/{id}', [BeritaController::class, 'updatekategori']);
 
+        //Kategori Bertia
+        Route::post('/berita/create/kategori', [BeritaController::class, 'storekategori']);
+        Route::get('/berita/destroy/kategori/{id}', [BeritaController::class, 'destroykategori']);
+        Route::get('/berita/edit/kategori/{id}', [BeritaController::class, 'editkategori']);
+        Route::post('/berita/update/kategori/{id}', [BeritaController::class, 'updatekategori']);
+        
         //Pengaturan
-        // Route::get('/pengaturan', [PengaturanController::class, 'index']);
-        // Route::put('/updatepassword', [PengaturanController::class, 'updatepassword'])->name('updatepassword');
+        Route::get('/updatepassword', [PengaturanController::class, 'index']);
+        Route::put('/updatepassword', [PengaturanController::class, 'updatepassword'])->name('updatepassword');
+
+        Route::get('/profile', [PengaturanController::class, 'show']);
+        Route::post('/profile/update/{id}', [PengaturanController::class, 'update']);
     });
 });

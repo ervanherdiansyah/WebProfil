@@ -13,7 +13,6 @@
             <b class="brand-text" style="color: #fff;">KERJASAMA</b>
         </a>
     </div> --}}
-
     <!-- Sidebar -->
     <div class="sidebar" style="overflow-y: auto;">
     <div class="sidebar">
@@ -21,13 +20,13 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <li class="nav-item menu-open">
+                <li class="nav-item menu-is-opening menu open">
                     <a href="{{ url('/admin/dashboard') }}"
-                        class="nav-link {{ request()->is('admin/dashboard' || 'admin/berita') ? 'active' : '' }}">
+                        class="nav-link {{ request()->is('admin/dashboard','admin/berita') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
-                            <i class="fas fa-angle-left right"></i>
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview" style="display:block; margin:10px">
@@ -99,6 +98,39 @@
                             RA
                         </p>
                     </a>
+                </li>
+                <li class="nav-item menu-is-opening menu-open">
+                    <a href=""
+                        class="nav-link {{ request()->is('admin/profile', 'admin/updatepassword') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>
+                            Setting
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display:block; margin:10px">
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/profile') }}"
+                                class="nav-link {{ request()->is('admin/profile') ? 'active' : '' }}">
+                                <i class="fas fa-user-edit nav-icon"></i>
+                                <p>Profile</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/updatepassword') }}"
+                                class="nav-link {{ request()->is('admin/updatepassword') ? 'active' : '' }}">
+                                <i class="fas fa-edit nav-icon"></i>
+                                <p>Ubah Password</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('logout')}}"
+                                class="nav-link">
+                                <i class="fas fa-sign-out-alt nav-icon"></i>
+                                <p>Logout</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>
