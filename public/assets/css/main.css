@@ -2782,6 +2782,10 @@ section {
   }
 }
 
+.hero .gambar-depan{
+  height: 400px;
+}
+
 .hero h2 {
   font-size: 48px;
   font-weight: 700;
