@@ -17,7 +17,7 @@
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-4 col-sm-6 footer-links">
+        <div class="col-lg-2 col-md-4 col-sm-6 footer-links d-sm-none d-md-block d-lg-block">
           <h4>Useful Links</h4>
           <ul>
             <li><a href="{{url('/')}}">Home</a></li>
@@ -36,7 +36,7 @@
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-4 col-sm-12 footer-contact text-center text-md-start footer-mobile">
+        <div class="col-lg-3 col-md-4 col-sm-6 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
           <p>
             Kp. Ciheulang, Desa Langensari, <br>

@@ -32,7 +32,7 @@
         </div>
 
         <div class="row justify-content-center align-items-center" data-aos="zoom-out" data-aos-delay="100">
-          <div class="col-lg-4">
+          <div class="col-lg-4 col-md-8 col-sm-10">
             <div class="biaya-item">
               <!-- <h3>Business Plan</h3> -->
               <div class="icon">

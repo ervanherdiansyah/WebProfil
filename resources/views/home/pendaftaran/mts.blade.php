@@ -32,25 +32,7 @@
         </div>
 
         <div class="row justify-content-center align-items-center" data-aos="zoom-out" data-aos-delay="100">
-          <div class="col-lg-4">
-            <div class="biaya-item">
-              <!-- <h3>Business Plan</h3> -->
-              <div class="icon">
-                <i class="bi bi-cash-coin"></i>
-              </div>
-
-              <h4><sup>Rp</sup>2.010.000</h4>
-              <ul>
-                <li><i class="bi bi-check"></i> Pendaftaran : <sup>Rp</sup>400.000</li>
-                <li><i class="bi bi-check"></i> Kitab Amtsilati : <sup>Rp</sup>150.000</li>
-                <li><i class="bi bi-check"></i> Infaq Bangunan : <sup>Rp</sup>500.000</li>
-                <li><i class="bi bi-check"></i> Bulanan : <sup>Rp</sup>460.000<sub> / bulan</sub></li>
-                <li><i class="bi bi-check"></i> Lemari : <sup>Rp</sup>500.000 (Hak Milik)</li>
-              </ul>
-              <div class="text-center"><a href="#" class="buy-btn">Daftar</a></div>
-            </div>
-          </div><!-- End Pricing Item -->
-          <div class="col-lg-4">
+          <div class="col-lg-4 col-md-8 col-sm-10">
             <div class="biaya-item">
               <!-- <h3>Business Plan</h3> -->
               <div class="icon">
