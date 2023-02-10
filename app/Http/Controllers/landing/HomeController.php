@@ -25,7 +25,7 @@ class HomeController extends Controller
         $kotak = ModelKotak::get();
         $berita = ModelBerita::where('is_active', 1)->get();
         $kategori = ModelBeritaKategori::get();
-        return view('layouts.index',compact('home','header','kotak','berita','kategori'));
+        return view('home.index',compact('home','header','kotak','berita','kategori'));
     }
 
     public function showMaintenance()
