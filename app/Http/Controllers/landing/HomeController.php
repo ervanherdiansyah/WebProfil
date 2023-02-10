@@ -21,7 +21,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
+        $home = ModelHome::first();
+        $header = ModelHeader::first();
+        $kotak = ModelKotak::get();
+        $berita = ModelBerita::where('is_active', 1)->get();
+        $kategori = ModelBeritaKategori::get();
+        return view('layouts.index',compact('home','header','kotak','berita','kategori'));
     }
 
     /**
