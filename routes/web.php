@@ -65,6 +65,82 @@ use App\Http\Controllers\landing\unit\UnitController;
 
 // Landing
 Route::get('/',[HomeController::class,'index']);
+Route::get('/contact',[ContactController::class,'index']);
+Route::get('/maintenance',[HomeController::class,'showMaintenance']);
+Route::get('/videoprofil',[HomeController::class,'showVideoProfil']);
+
+Route::prefix('tentang')->group(function() 
+{
+    Route::get('/',[HomeController::class,'showTentang']);
+    Route::prefix('selayangpandang')->group(function() 
+    {
+        Route::get('/',[HomeController::class,'showSelayangPandang']);
+        Route::get('/sambutan',[SambutanController::class,'index']);
+        Route::get('/sejarah',[SejarahController::class,'index']);
+        Route::get('/visi',[VisiYayasanController::class,'index']);
+        Route::get('/lokasi',[LokasiController::class,'index']);
+    });
+
+    Route::prefix('organisasi')->group(function() 
+    {
+        Route::get('/',[HomeController::class,'showOrganisasi']);
+        Route::get('/struktur',[StrukturYayasanController::class,'index']);
+        Route::get('/profil',[ProfilPimpinanController::class,'index']);
+    });
+
+    Route::prefix('divisi')->group(function() 
+    {
+        Route::get('/',[HomeController::class,'showDivisi']);
+        Route::get('/media',[DivisiMediaController::class,'index']);
+        Route::get('/it',[DivisiITController::class,'index']);
+    });
+});
+
+Route::prefix('pendaftaran')->group(function() 
+{
+    Route::get('/',[PendaftaranController::class,'index']);
+    Route::get('/santri',[DaftarSantriController::class,'index']);
+    Route::get('/ra',[DaftarRAController::class,'index']);
+    Route::get('/mts',[DaftarMTsController::class,'index']);
+    Route::get('/sma',[DaftarSMAController::class,'index']);
+});
+
+Route::prefix('sma')->group(function() 
+{
+    Route::get('/',[SMAController::class,'index']);
+    Route::get('/visimisi',[VisiMisiSMAController::class,'index']);
+    Route::get('/headmaster',[HeadmasterSMAController::class,'index']);
+    Route::get('/struktur',[StrukturSMAController::class,'index']);
+});
+
+Route::prefix('mts')->group(function() 
+{
+    Route::get('/',[MTsController::class,'index']);
+    Route::get('/visimisi',[VisiMisiMTsController::class,'index']);
+    Route::get('/headmaster',[HeadmasterMTsController::class,'index']);
+    Route::get('/struktur',[StrukturMTsController::class,'index']);
+});
+
+Route::prefix('ra')->group(function() 
+{
+    Route::get('/',[RAController::class,'index']);
+    Route::get('/visimisi',[VisiMisiRAController::class,'index']);
+    Route::get('/headmaster',[HeadmasterRAController::class,'index']);
+    Route::get('/struktur',[StrukturRAController::class,'index']);
+});
+
+Route::prefix('unit')->group(function() 
+{
+    Route::get('/',[UnitController::class,'ShowAllUnit']);
+    Route::get('/detail',[BeritaController::class,'DetailBerita']);
+});
+
+Route::get('/aksescepat',[HomeController::class,'showAksesCepat']);
+Route::prefix('berita')->group(function() 
+{
+    Route::get('/',[BeritaController::class,'index']);
+    Route::get('/detail',[BeritaController::class,'DetailBerita']);
+});
 
 
 //Dashboard
