@@ -3469,6 +3469,10 @@ section {
   color: white;
 }
 
+.footer .desc{
+  text-align: justify;
+}
+
 .footer .footer-info .logo {
   line-height: 0;
   margin-bottom: 25px;
@@ -3573,4 +3577,10 @@ section {
 
 .footer .credits a {
   color: #fff;
+}
+
+@media (max-width: 600px) {
+  .footer .footer-mobile{
+    margin-top: -25px;
+  }
 }

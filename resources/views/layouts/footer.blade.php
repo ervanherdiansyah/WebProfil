@@ -2,13 +2,13 @@
 
     <div class="container">
       <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-info">
+        <div class="col-lg-5 col-md-12 col-sm-12 footer-info">
           <a href="index.html" class="logo d-flex align-items-center">
             <span>Al-Istiqomah</span>
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-          <p>Terhubung Bersama Kami</p>
-          <div class="social-links d-flex mt-4">
+          <p class="desc">Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <p class="text-center">Terhubung Bersama Kami</p>
+          <div class="social-links d-flex mt-4 justify-content-center">
             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
             <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
@@ -17,7 +17,7 @@
           </div>
         </div>
 
-        <div class="col-lg-2 col-6 footer-links">
+        <div class="col-lg-2 col-md-4 col-sm-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
             <li><a href="{{url('/')}}">Home</a></li>
@@ -26,17 +26,17 @@
           </ul>
         </div>
 
-        <div class="col-lg-2 col-6 footer-links">
+        <div class="col-lg-2 col-md-4 col-sm-6 footer-links">
           <h4>Our Services</h4>
           <ul>
             <li><a href="{{url('/pendaftaran/santri')}}">Pendaftaran Santri</a></li>
-            <li><a href="{{url('/pendaftaran')}}">Pendaftaran RA</a></li>
-            <li><a href="{{url('/pendaftaran')}}">Pendaftaran MTs</a></li>
-            <li><a href="{{url('/pendaftaran')}}">Pendaftaran SMA</a></li>
+            <li><a href="{{url('/pendaftaran/ra')}}">Pendaftaran RA</a></li>
+            <li><a href="{{url('/pendaftaran/mts')}}">Pendaftaran MTs</a></li>
+            <li><a href="{{url('/pendaftaran/sma')}}">Pendaftaran SMA</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+        <div class="col-lg-3 col-md-4 col-sm-12 footer-contact text-center text-md-start footer-mobile">
           <h4>Contact Us</h4>
           <p>
             Kp. Ciheulang, Desa Langensari, <br>
