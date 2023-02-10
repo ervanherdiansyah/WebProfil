@@ -21,11 +21,6 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                with font-awesome or any other icon font library -->
-                {{-- <li class="nav-header user-panel pb-3 mb-3" style="text-align: center;">
-            MAIN NAVIGATION
-            </li> --}}
                 <li class="nav-item menu-open">
                     <a href="{{ url('/admin/dashboard') }}"
                         class="nav-link {{ request()->is('admin/dashboard' || 'admin/berita') ? 'active' : '' }}">
@@ -39,14 +34,14 @@
                         <li class="nav-item">
                             <a href="{{ url('/admin/dashboard') }}"
                                 class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-home nav-icon"></i>
                                 <p>Home</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/admin/berita') }}"
                                 class="nav-link {{ request()->is('admin/berita') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-newspaper nav-icon"></i>
                                 <p>Berita</p>
                             </a>
                         </li>
@@ -105,12 +100,6 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
-            <form action="/logout" method="post">
-               @csrf
-               <button type="submit" class="nav-link"><i class="fas fa-sign-out-alt"> Sign Out</i></button>
-            </form>
-          </li> --}}
             </ul>
         </nav>
     </div>
