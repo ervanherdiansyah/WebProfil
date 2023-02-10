@@ -3,15 +3,10 @@
 namespace App\Http\Controllers\landing;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\ModelHome;
-use App\ModelHeader;
-use App\ModelKotak;
-use App\User;
-use App\ModelBerita;
-use App\ModelBeritaKategori;
 
-class HomeController extends Controller
+use Illuminate\Http\Request;
+
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,61 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $home = ModelHome::first();
-        $header = ModelHeader::first();
-        $kotak = ModelKotak::get();
-        $berita = ModelBerita::where('is_active', 1)->get();
-        $kategori = ModelBeritaKategori::get();
-        return view('layouts.index',compact('home','header','kotak','berita','kategori'));
-    }
-
-    public function showMaintenance()
-    {
-        return view('home.maintenance');
-    }
-
-    public function showBerita()
-    {
-        return view('home.akses-cepat.berita.index');
-    }
-
-    public function showSelayangPandang(){
-        return view('home.tentang.selayangpandang.index');
-    }
-
-    public function showPendaftaran()
-    {
-        return view('home.pendaftaran.index');
-    }
-
-    public function showVideoProfil()
-    {
-        return view('home.vidprofil');
-    }
-
-    public function showUnitSiswa()
-    {
-        return view('home.akses-cepat.unit.index');
-    }
-
-    public function showTentang()
-    {
-        return view('home.tentang.index');
-    }
-
-    public function showAksesCepat()
-    {
-        return view('home.akses-cepat.index');
-    }
-
-    public function showOrganisasi()
-    {
-        return view('home.tentang.organisasi.index');
-    }
-
-    public function showDivisi()
-    {
-        return view('home.tentang.divisi.index');
+        return view('home.contact.index');
     }
 
     /**

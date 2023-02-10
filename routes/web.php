@@ -5,6 +5,52 @@ use App\Http\Controllers\landing\HomeController;
 use App\Http\Controllers\dashboard\DashboardController;
 use App\Http\Controllers\dashboard\BeritaController;
 use App\Http\Controllers\login\AuthController;
+use App\Http\Controllers\landing\tentang\SelayangController;
+use App\Http\Controllers\landing\tentang\OrganisasiController;
+use App\Http\Controllers\landing\tentang\DivisiController;
+use App\Http\Controllers\landing\ContactController;
+
+// Selayang Pandang Controller
+use App\Http\Controllers\landing\tentang\SelayangPandang\LokasiController;
+use App\Http\Controllers\landing\tentang\SelayangPandang\SambutanController;
+use App\Http\Controllers\landing\tentang\SelayangPandang\SejarahController;
+use App\Http\Controllers\landing\tentang\SelayangPandang\VisiYayasanController;
+
+// Organisasi & Tata Kerja Controller
+use App\Http\Controllers\landing\tentang\OrganisasiTataKerja\StrukturYayasanController;
+use App\Http\Controllers\landing\tentang\OrganisasiTataKerja\ProfilPimpinanController;
+
+// Divisi Controller
+use App\Http\Controllers\landing\tentang\Divisi\DivisiMediaController;
+use App\Http\Controllers\landing\tentang\Divisi\DivisiITController;
+
+// Pendaftaran Controller
+use App\Http\Controllers\landing\pendaftaran\PendaftaranController;
+use App\Http\Controllers\landing\pendaftaran\DaftarSantriController;
+use App\Http\Controllers\landing\pendaftaran\DaftarRAController;
+use App\Http\Controllers\landing\pendaftaran\DaftarMTsController;
+use App\Http\Controllers\landing\pendaftaran\DaftarSMAController;
+
+// SMA Controller
+use App\Http\Controllers\landing\SMA\SMAController;
+use App\Http\Controllers\landing\SMA\HeadmasterSMAController;
+use App\Http\Controllers\landing\SMA\VisiMisiSMAController;
+use App\Http\Controllers\landing\SMA\StrukturSMAController;
+
+// MTs Controller
+use App\Http\Controllers\landing\MTs\MTsController;
+use App\Http\Controllers\landing\MTs\HeadmasterMTsController;
+use App\Http\Controllers\landing\MTs\VisiMisiMTsController;
+use App\Http\Controllers\landing\MTs\StrukturMTsController;
+
+// RA Controller
+use App\Http\Controllers\landing\RA\RAController;
+use App\Http\Controllers\landing\RA\HeadmasterRAController;
+use App\Http\Controllers\landing\RA\VisiMisiRAController;
+use App\Http\Controllers\landing\RA\StrukturRAController;
+
+// Unit Controller
+use App\Http\Controllers\landing\unit\UnitController;
 
 /*
 |--------------------------------------------------------------------------

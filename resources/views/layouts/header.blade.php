@@ -1,14 +1,15 @@
 <section id="topbar" class="topbar d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="https://mail.{{$header->email}}">{{$header->email}}</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>{{$header->nohp}}</span></i>
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">hendrayna55@gmail.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+62 815-2194-1914</span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
-        <a href="{{$header->twiter}}" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="{{$header->facebook}}" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="{{$header->instagram}}" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="{{$header->youtube}}" class="youtube"><i class="bi bi-youtube"></i></a>
+        <a href="https://www.youtube.com/@isteqmediachannel5901" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/amtsilatialistiqomah" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/isteqamtsilati" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/@isteqmediachannel5901" target="_blank" class="youtube"><i class="bi bi-youtube"></i></a>
+        <a href="https://www.tiktok.com/@isteqamtsilati" target="_blank" class="tiktok"><i class="bi bi-tiktok"></i></a>
       </div>
     </div>
   </section><!-- End Top Bar -->
@@ -23,30 +24,77 @@
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a href="{{url('/')}}">Home</a></li>
+          <li class="dropdown"><a href="{{url('/tentang')}}"><span>Tentang Isteq</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+              <li class="dropdown"><a href="{{url('/tentang/selayangpandang')}}"><span>Selayang Pandang</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
+                  <li><a href="{{url('/tentang/selayangpandang/sambutan')}}">Sambutan Kepala Yayasan</a></li>
+                  <li><a href="{{url('/tentang/selayangpandang/sejarah')}}">Sejarah</a></li>
+                  <li><a href="{{url('/tentang/selayangpandang/visi')}}">Visi dan Misi Yayasan</a></li>
+                  <li><a href="{{url('/tentang/selayangpandang/lokasi')}}">Peta Lokasi</a></li>
                 </ul>
               </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li class="dropdown"><a href="{{url('/tentang/organisasi')}}"><span>Organisasi dan Tata Kerja</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="{{url('/tentang/organisasi/struktur')}}">Struktur Organisasi</a></li>
+                  <li><a href="{{url('/tentang/organisasi/profil')}}">Profil Pimpinan Yayasan</a></li>
+                  <li><a href="{{url('/ra')}}">RA</a></li>
+                  <li><a href="{{url('/mts')}}">MTs</a></li>
+                  <li><a href="{{url('/sma')}}">SMA</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="{{url('/tentang/divisi')}}"><span>Divisi</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="{{url('/tentang/divisi/media')}}">Media</a></li>
+                  <li><a href="{{url('/tentang/divisi/it')}}">IT</a></li>
+                </ul>
+              </li>
+              <li><a href="https://www.youtube.com/@isteqmediachannel5901" target="_blank">Kanal YouTube Isteq</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
+          <li class="dropdown"><a href="{{url('/aksescepat')}}"><span>Akses Cepat</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li class="dropdown"><a href="{{url('/maintenance')}}"><span>Aplikasi</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="{{url('/maintenance')}}">Murid</a></li>
+                  <li><a href="{{url('/maintenance')}}">Guru</a></li>
+                </ul>
+              </li>
+              <li><a href="{{url('/unit')}}">Unit Siswa & Santri</a></li>
+              <li><a href="{{url('/berita')}}">Berita</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="{{url('/pendaftaran')}}"><span>Pendaftaran</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="{{url('/pendaftaran/santri')}}">Santri</a></li>
+              <li><a href="{{url('/pendaftaran/ra')}}">Raudhatul Athfal</a></li>
+              <li><a href="{{url('/pendaftaran/mts')}}">Madrasah Tsanawiyah</a></li>
+              <li><a href="{{url('/pendaftaran/sma')}}">Sekolah Menengah Atas</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="{{url('/sma')}}"><span>SMA</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="{{url('/sma/headmaster')}}">Kepala SMA</a></li>
+              <li><a href="{{url('/sma/visimisi')}}">Visi dan Misi</a></li>
+              <li><a href="{{url('/sma/struktur')}}">Struktur Organigram</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="{{url('/mts')}}"><span>MTs</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li><a href="{{url('/mts/headmaster')}}">Kepala MTs</a></li>
+            <li><a href="{{url('/mts/visimisi')}}">Visi dan Misi</a></li>
+            <li><a href="{{url('/mts/struktur')}}">Struktur Organigram</a></li>
+          </ul>
+          </li>
+          <li class="dropdown"><a href="{{url('/ra')}}"><span>RA</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="{{url('/ra/headmaster')}}">Kepala RA</a></li>
+              <li><a href="{{url('/ra/visimisi')}}">Visi dan Misi</a></li>
+              <li><a href="{{url('/ra/struktur')}}">Struktur Organigram</a></li>
+            </ul>
+          </li>
+          <li><a href="{{url('/contact')}}">Contact Us</a></li>
         </ul>
       </nav><!-- .navbar -->
 
