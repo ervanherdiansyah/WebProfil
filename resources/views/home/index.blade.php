@@ -41,7 +41,7 @@
       <div class="container position-relative">
         <div class="row gy-4 mt-5">
 
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-xl-3 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-easel"></i></div>
               <h4 class="title"><a href="" class="stretched-link">SMA Islam Al-Istiqomah</a></h4>
@@ -50,7 +50,7 @@
           </div>
           <!--End Icon Box -->
 
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-xl-3 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-gem"></i></div>
               <h4 class="title"><a href="" class="stretched-link">MTs SA Al-Istiqomah</a></h4>
@@ -59,7 +59,7 @@
           </div>
           <!--End Icon Box -->
 
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-xl-3 col-md-6 col-sm-6 d-sm-none d-md-none d-lg-block" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-geo-alt"></i></div>
               <h4 class="title"><a href="" class="stretched-link">Lokasi YPI Al-Istiqomah</a></h4>
@@ -68,7 +68,7 @@
           </div>
           <!--End Icon Box -->
 
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="col-xl-3 col-md-6 col-sm-6 d-sm-none d-md-none d-lg-block" data-aos="fade-up" data-aos-delay="500">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-command"></i></div>
               <h4 class="title"><a href="" class="stretched-link">Pondok Pesantren</a></h4>
