@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\landing\HomeController;
 use App\Http\Controllers\dashboard\DashboardController;
 use App\Http\Controllers\dashboard\BeritaController;
+use App\Http\Controllers\landing\berita\FrontBeritaController;
 use App\Http\Controllers\dashboard\PengaturanController;
 use App\Http\Controllers\login\AuthController;
 use App\Http\Controllers\landing\tentang\SelayangController;
@@ -139,8 +140,8 @@ Route::prefix('unit')->group(function()
 Route::get('/aksescepat',[HomeController::class,'showAksesCepat']);
 Route::prefix('berita')->group(function() 
 {
-    Route::get('/',[BeritaController::class,'index']);
-    Route::get('/detail',[BeritaController::class,'DetailBerita']);
+    Route::get('/',[FrontBeritaController::class,'index']);
+    Route::get('/detail',[FrontBeritaController::class,'DetailBerita']);
 });
 
 
