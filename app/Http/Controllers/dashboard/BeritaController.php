@@ -8,6 +8,7 @@ use App\ModelBerita;
 use App\ModelBeritaKategori;
 use Illuminate\Http\Request;
 use Alert;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 class BeritaController extends Controller
