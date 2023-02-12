@@ -29,7 +29,7 @@
                     <p>{!! $home->deskripsi !!}}</p>
                     <div class="d-flex justify-content-center justify-content-lg-start">
                         <!-- <a href="#about" class="btn-get-started">Get Started</a> -->
-                        <a href="{{ $home->video }}" class="btn-watch-video d-flex align-items-center"><i
+                        <a href="{{url('/videoprofil')}}" class="btn-watch-video d-flex align-items-center"><i
                                 class="bi bi-play-circle"></i><span>Video Profil</span></a>
                     </div>
                 </div>
