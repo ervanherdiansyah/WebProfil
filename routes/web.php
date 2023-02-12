@@ -128,14 +128,14 @@ Route::prefix('ra')->group(function () {
 
 Route::prefix('unit')->group(function () {
     Route::get('/', [UnitController::class, 'ShowAllUnit']);
-    Route::get('/detail', [BeritaController::class, 'DetailBerita']);
+    Route::get('/detail', [FrontBeritaController::class, 'DetailBerita']);
 });
 
 Route::get('/aksescepat',[HomeController::class,'showAksesCepat']);
 Route::prefix('berita')->group(function() 
 {
-    Route::get('/',[BeritaController::class,'index']);
-    Route::get('/detail',[BeritaController::class,'DetailBerita']);
+    Route::get('/',[FrontBeritaController::class,'index']);
+    Route::get('/detail',[FrontBeritaController::class,'DetailBerita']);
 });
 
 //Dashboard
