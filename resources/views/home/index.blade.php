@@ -19,41 +19,60 @@
     <!-- ======= Header ======= -->
     @include('layouts.header')
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="hero">
-        <div class="container position-relative">
-            <div class="row gy-5" data-aos="fade-in">
-                <div
-                    class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
-                    <h2>Selamat Datang di<br>{{ $home->judul }}</h2>
-                    <p>{!! $home->deskripsi !!}</p>
-                    <div class="d-flex justify-content-center justify-content-lg-start">
-                        <!-- <a href="#about" class="btn-get-started">Get Started</a> -->
-                        <a href="{{ url('/videoprofil') }}" class="btn-watch-video d-flex align-items-center"><i
-                                class="bi bi-play-circle"></i><span>Video Profil</span></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 order-1 order-lg-2 justify-content-center align-items-center text-center">
-                    <img src="{{ asset('storage/' . $home->gambar) }}" class="img-fluid gambar-depan" alt=""
-                        data-aos="zoom-out" data-aos-delay="100">
-                </div>
-            </div>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero">
+    <div class="container position-relative">
+      <div class="row gy-5" data-aos="fade-in">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
+          <h2>Selamat Datang di<br>Al-Istiqomah</br></h2>
+          <p>Deskripsi dirubah di dashboard</p>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <!-- <a href="#about" class="btn-get-started">Get Started</a> -->
+            <a href="{{url('/videoprofil')}}" class="btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Video Profil</span></a>
+          </div>
         </div>
+        <div class="col-lg-6 order-1 order-lg-2 justify-content-center align-items-center text-center">
+          <img src="{{asset('assets')}}/img/dua-hendra.png" class="img-fluid gambar-depan" alt="" data-aos="zoom-out" data-aos-delay="100">
+        </div>
+      </div>
+    </div>
 
-        <div class="icon-boxes position-relative">
-            <div class="container position-relative">
-                <div class="row gy-4 mt-5">
-                    @foreach ($kotak as $data)
-                        <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                            <div class="icon-box">
-                                <div class="icon"><i class="{{ $data->judul1 }}"></i></div>
-                                <h4 class="title"><a href="" class="stretched-link">{{ $data->judul2 }}</a></h4>
-                                <p>{{ $data->judul3 }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                    <!--End Icon Box -->
-                </div>
+    <div class="icon-boxes position-relative">
+      <div class="container position-relative">
+        <div class="row gy-4 mt-5">
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-easel"></i></div>
+              <h4 class="title"><a href="" class="stretched-link">SMA Islam Al-Istiqomah</a></h4>
+              <p>Terakreditasi B</p>
+            </div>
+          </div>
+          <!--End Icon Box -->
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-gem"></i></div>
+              <h4 class="title"><a href="" class="stretched-link">MTs SA Al-Istiqomah</a></h4>
+              <p>Terakreditasi A</p>
+            </div>
+          </div>
+          <!--End Icon Box -->
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-geo-alt"></i></div>
+              <h4 class="title"><a href="" class="stretched-link">Lokasi YPI Al-Istiqomah</a></h4>
+              <p>Cianjur, Jawa Barat</p>
+            </div>
+          </div>
+          <!--End Icon Box -->
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-command"></i></div>
+              <h4 class="title"><a href="" class="stretched-link">Pondok Pesantren</a></h4>
+              <p>Salafiyah</p>
             </div>
         </div>
 
