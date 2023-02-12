@@ -342,12 +342,12 @@
                     </div>
                     <div class="card-body" style="display: block;">
                         <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal"
-                            data-target="#tambahhh">
+                            data-target="#tambah1">
                             <i class="fas fa-plus"></i>
                             Tambah Kategori Berita
                         </button>
                         <!-- Modal Tambah Start -->
-                        <div class="modal fade text-left" id="tambahhh" tabindex="-1" aria-labelledby="tambahLabel"
+                        <div class="modal fade text-left" id="tambah1" tabindex="-1" aria-labelledby="tambahLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -409,12 +409,12 @@
                                         <td class="project-actions text-center">
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                                                data-target="#ubahhh{{$data->id}}">
+                                                data-target="#ubah1{{$data->id}}">
                                                 <i class="fas fa-edit"></i>
                                                 Ubah
                                             </button>
                                             <!-- Modal Ubah Start -->
-                                            <div class="modal fade text-left" id="ubahhh{{$data->id}}" tabindex="-1"
+                                            <div class="modal fade text-left" id="ubah1{{$data->id}}" tabindex="-1"
                                                 aria-labelledby="ubahLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-scrollable">
                                                     <div class="modal-content">
@@ -457,12 +457,12 @@
                                             <!-- Modal Ubah End -->
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                data-target="#destroy{{ $data->id }}">
+                                                data-target="#destroy1{{ $data->id }}">
                                                 <i class="fas fa-trash"></i>
                                                 Hapus
                                             </button>
                                             <!-- Modal Ubah Start -->
-                                            <div class="modal fade text-left" id="destroy{{ $data->id }}"
+                                            <div class="modal fade text-left" id="destroy1{{ $data->id }}"
                                                 tabindex="-1" aria-labelledby="destroyLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-scrollable">
                                                     <div class="modal-content">

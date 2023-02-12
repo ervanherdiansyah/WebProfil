@@ -279,12 +279,12 @@
                     </div>
                     <div class="card-body" style="display: block;">
                         <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal"
-                            data-target="#tambahh">
+                            data-target="#tambah1">
                             <i class="fas fa-plus"></i>
                             Tambah
                         </button>
                         <!-- Modal Tambah Start -->
-                        <div class="modal fade text-left" id="tambahh" tabindex="-1" aria-labelledby="tambahLabel"
+                        <div class="modal fade text-left" id="tambah1" tabindex="-1" aria-labelledby="tambahLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -411,12 +411,12 @@
                                             <td class="project-actions text-center">
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                                                    data-target="#ubahh{{ $data->id }}">
+                                                    data-target="#ubah1{{ $data->id }}">
                                                     <i class="fas fa-edit"></i>
                                                     Ubah
                                                 </button>
                                                 <!-- Modal Ubah Start -->
-                                                <div class="modal fade text-left" id="ubahh{{ $data->id }}"
+                                                <div class="modal fade text-left" id="ubah1{{ $data->id }}"
                                                     tabindex="-1" aria-labelledby="ubahLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
@@ -509,12 +509,12 @@
                                                 <!-- Modal Ubah End -->
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                    data-target="#destroy{{ $data->id }}">
+                                                    data-target="#destroy1{{ $data->id }}">
                                                     <i class="fas fa-trash"></i>
                                                     Hapus
                                                 </button>
                                                 <!-- Modal Ubah Start -->
-                                                <div class="modal fade text-left" id="destroy{{ $data->id }}"
+                                                <div class="modal fade text-left" id="destroy1{{ $data->id }}"
                                                     tabindex="-1" aria-labelledby="destroyLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
@@ -565,12 +565,12 @@
                     </div>
                     <div class="card-body" style="display: block;">
                         <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal"
-                            data-target="#tambahhh">
+                            data-target="#tambah2">
                             <i class="fas fa-plus"></i>
                             Tambah
                         </button>
                         <!-- Modal Tambah Start -->
-                        <div class="modal fade text-left" id="tambahhh" tabindex="-1" aria-labelledby="tambahLabel"
+                        <div class="modal fade text-left" id="tambah2" tabindex="-1" aria-labelledby="tambahLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -655,12 +655,12 @@
                                             <td class="project-actions text-center">
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                                                    data-target="#ubahhh{{ $data->id }}">
+                                                    data-target="#ubah2{{ $data->id }}">
                                                     <i class="fas fa-edit"></i>
                                                     Ubah
                                                 </button>
                                                 <!-- Modal Ubah Start -->
-                                                <div class="modal fade text-left" id="ubahhh{{ $data->id }}"
+                                                <div class="modal fade text-left" id="ubah2{{ $data->id }}"
                                                     tabindex="-1" aria-labelledby="ubahLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
@@ -723,12 +723,12 @@
                                                 <!-- Modal Ubah End -->
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                    data-target="#destroy{{ $data->id }}">
+                                                    data-target="#destroy2{{ $data->id }}">
                                                     <i class="fas fa-trash"></i>
                                                     Hapus
                                                 </button>
                                                 <!-- Modal Ubah Start -->
-                                                <div class="modal fade text-left" id="destroy{{ $data->id }}"
+                                                <div class="modal fade text-left" id="destroy2{{ $data->id }}"
                                                     tabindex="-1" aria-labelledby="destroyLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
@@ -779,12 +779,12 @@
                     </div>
                     <div class="card-body" style="display: block;">
                         <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal"
-                            data-target="#tambahhhh">
+                            data-target="#tambah3">
                             <i class="fas fa-plus"></i>
-                            Tambah Background
+                            Tambah
                         </button>
                         <!-- Modal Tambah Start -->
-                        <div class="modal fade text-left" id="tambahhhh" tabindex="-1" aria-labelledby="tambahLabel"
+                        <div class="modal fade text-left" id="tambah3" tabindex="-1" aria-labelledby="tambahLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -843,17 +843,17 @@
                                             <td class="project-actions text-center">
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                                                    data-target="#ubah{{ $data->id }}">
+                                                    data-target="#ubah3{{ $data->id }}">
                                                     <i class="fas fa-edit"></i>
                                                     Ubah
                                                 </button>
                                                 <!-- Modal Ubah Start -->
-                                                <div class="modal fade text-left" id="ubah{{ $data->id }}"
+                                                <div class="modal fade text-left" id="ubah3{{ $data->id }}"
                                                     tabindex="-1" aria-labelledby="ubahLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="ubahLabel">Ubah Dashboard</h5>
+                                                                <h5 class="modal-title" id="ubahLabel">Ubah Background</h5>
                                                                 <button type="button" class="close"
                                                                     data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
@@ -894,12 +894,12 @@
                                                 <!-- Modal Ubah End -->
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                    data-target="#destroy{{ $data->id }}">
+                                                    data-target="#destroy3{{ $data->id }}">
                                                     <i class="fas fa-trash"></i>
                                                     Hapus
                                                 </button>
                                                 <!-- Modal Ubah Start -->
-                                                <div class="modal fade text-left" id="destroy{{ $data->id }}"
+                                                <div class="modal fade text-left" id="destroy3{{ $data->id }}"
                                                     tabindex="-1" aria-labelledby="destroyLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
@@ -950,12 +950,12 @@
                     </div>
                     <div class="card-body" style="display: block;">
                         <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal"
-                            data-target="#tambah1">
+                            data-target="#tambah4">
                             <i class="fas fa-plus"></i>
                             Tambah
                         </button>
                         <!-- Modal Tambah Start -->
-                        <div class="modal fade text-left" id="tambah1" tabindex="-1" aria-labelledby="tambahLabel"
+                        <div class="modal fade text-left" id="tambah4" tabindex="-1" aria-labelledby="tambahLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -975,7 +975,7 @@
                                                 <input type="file"
                                                     class="form-control @error('gambar') is-invalid @enderror"
                                                     name="gambar" id="image" onchange="previewImage()">
-                                                @error('logo')
+                                                @error('gambar')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>
@@ -1005,21 +1005,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($logo as $data)
+                                    @foreach ($logo as $d)
                                         <tr style="text-align: justify;">
                                             <td>
-                                                <img src="{{ asset('storage/' . $data->gambar) }}"
+                                                <img src="{{ asset('storage/' . $d->gambar) }}"
                                                     style="display:block; margin:auto; max-width: 100%">
                                             </td>
                                             <td class="project-actions text-center">
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                                                    data-target="#ubah{{ $data->id }}">
+                                                    data-target="#ubah4{{ $d->id }}">
                                                     <i class="fas fa-edit"></i>
                                                     Ubah
                                                 </button>
                                                 <!-- Modal Ubah Start -->
-                                                <div class="modal fade text-left" id="ubah{{ $data->id }}"
+                                                <div class="modal fade text-left" id="ubah4{{ $d->id }}"
                                                     tabindex="-1" aria-labelledby="ubahLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
@@ -1033,12 +1033,12 @@
                                                             <div class="modal-body">
                                                                 <!-- form start -->
                                                                 <form
-                                                                    action="{{ url('/admin/dashboard/update/logo') }}/{{ $data->id }}"
+                                                                    action="{{ url('/admin/dashboard/update/logo') }}/{{ $d->id }}"
                                                                     method="POST" enctype="multipart/form-data">
                                                                     @csrf
                                                                     <div class="form-group">
                                                                         <label>Gambar</label>
-                                                                        <img src="{{ asset('storage/' . $data->gambar) }}"
+                                                                        <img src="{{ asset('storage/' . $d->gambar) }}"
                                                                             style="display:block; margin:auto; max-width: 100%">
                                                                         <input type="file"
                                                                             class="form-control @error('gambar') is-invalid @enderror"
@@ -1065,12 +1065,12 @@
                                                 <!-- Modal Ubah End -->
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                    data-target="#destroy{{ $data->id }}">
+                                                    data-target="#destroy4{{ $d->id }}">
                                                     <i class="fas fa-trash"></i>
                                                     Hapus
                                                 </button>
                                                 <!-- Modal Ubah Start -->
-                                                <div class="modal fade text-left" id="destroy{{ $data->id }}"
+                                                <div class="modal fade text-left" id="destroy4{{ $d->id }}"
                                                     tabindex="-1" aria-labelledby="destroyLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
@@ -1089,7 +1089,7 @@
                                                             <div class="modal-footer">
                                                                 <a href="{{ url('/admin/dashboard') }}"
                                                                     class="btn btn-success btn-sm">kembali</a>
-                                                                <a href="{{ url('/admin/dashboard/destroy/logo') }}/{{ $data->id }}"
+                                                                <a href="{{ url('/admin/dashboard/destroy/logo') }}/{{ $d->id }}"
                                                                     class="btn btn-danger btn-sm">delete</a>
                                                             </div>
                                                         </div>

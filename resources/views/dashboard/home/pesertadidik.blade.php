@@ -30,7 +30,7 @@
             <div class="container-fluid">
                 <div class="card card-primary">
                     <div class="card-header" style="background-color: #343a40;">
-                        <h3 class="card-title">Siswa Peserta Didik Al-Istiqomah</h3>
+                        <h3 class="card-title">Siswa Peserta Didik MTs Al-Istiqomah</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                 <i class="fas fa-minus"></i>
@@ -117,7 +117,7 @@
                                                 {{ $data->pdperempuan }}
                                             </td>
                                             <td>
-                                                {{ $data->total }}
+                                                {{-- {{ $data->total }} --}}
                                             </td>
                                             <td class="project-actions text-center">
                                                 <!-- Button trigger modal -->
@@ -239,12 +239,12 @@
                     </div>
                     <div class="card-body" style="display: block;">
                         <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal"
-                            data-target="#tambahh">
+                            data-target="#tambah1">
                             <i class="fas fa-plus"></i>
                             Tambah
                         </button>
                         <!-- Modal Tambah Start -->
-                        <div class="modal fade text-left" id="tambahh" tabindex="-1" aria-labelledby="tambahLabel"
+                        <div class="modal fade text-left" id="tambah1" tabindex="-1" aria-labelledby="tambahLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -317,17 +317,17 @@
                                                 {{ $data->pdperempuan }}
                                             </td>
                                             <td>
-                                                {{ $data->total }}
+                                                {{-- {{ $data->total }} --}}
                                             </td>
                                             <td class="project-actions text-center">
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                                                    data-target="#ubah{{ $data->id }}">
+                                                    data-target="#ubah1{{ $data->id }}">
                                                     <i class="fas fa-edit"></i>
                                                     Ubah
                                                 </button>
                                                 <!-- Modal Ubah Start -->
-                                                <div class="modal fade text-left" id="ubah{{ $data->id }}"
+                                                <div class="modal fade text-left" id="ubah1{{ $data->id }}"
                                                     tabindex="-1" aria-labelledby="ubahLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
@@ -383,12 +383,12 @@
                                                 <!-- Modal Ubah End -->
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                    data-target="#destroy{{ $data->id }}">
+                                                    data-target="#destroy1{{ $data->id }}">
                                                     <i class="fas fa-trash"></i>
                                                     Hapus
                                                 </button>
                                                 <!-- Modal Ubah Start -->
-                                                <div class="modal fade text-left" id="destroy{{ $data->id }}"
+                                                <div class="modal fade text-left" id="destroy1{{ $data->id }}"
                                                     tabindex="-1" aria-labelledby="destroyLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
@@ -439,12 +439,12 @@
                     </div>
                     <div class="card-body" style="display: block;">
                         <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal"
-                            data-target="#tambahhh">
+                            data-target="#tambah2">
                             <i class="fas fa-plus"></i>
                             Tambah
                         </button>
                         <!-- Modal Tambah Start -->
-                        <div class="modal fade text-left" id="tambahhh" tabindex="-1" aria-labelledby="tambahLabel"
+                        <div class="modal fade text-left" id="tambah2" tabindex="-1" aria-labelledby="tambahLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -517,17 +517,17 @@
                                                 {{ $data->pdperempuan }}
                                             </td>
                                             <td>
-                                                {{ $data->total }}
+                                                {{-- {{ $data->total }} --}}
                                             </td>
                                             <td class="project-actions text-center">
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                                                    data-target="#ubah{{ $data->id }}">
+                                                    data-target="#ubah2{{ $data->id }}">
                                                     <i class="fas fa-edit"></i>
                                                     Ubah
                                                 </button>
                                                 <!-- Modal Ubah Start -->
-                                                <div class="modal fade text-left" id="ubah{{ $data->id }}"
+                                                <div class="modal fade text-left" id="ubah2{{ $data->id }}"
                                                     tabindex="-1" aria-labelledby="ubahLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
@@ -583,12 +583,12 @@
                                                 <!-- Modal Ubah End -->
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                    data-target="#destroy{{ $data->id }}">
+                                                    data-target="#destroy2{{ $data->id }}">
                                                     <i class="fas fa-trash"></i>
                                                     Hapus
                                                 </button>
                                                 <!-- Modal Ubah Start -->
-                                                <div class="modal fade text-left" id="destroy{{ $data->id }}"
+                                                <div class="modal fade text-left" id="destroy2{{ $data->id }}"
                                                     tabindex="-1" aria-labelledby="destroyLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">

@@ -172,7 +172,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/dashboard/edit/kotak/{id}', [DashboardController::class, 'editkotak']);
             Route::post('/dashboard/update/kotak/{id}', [DashboardController::class, 'updatekotak']);
 
-            //Kotak
+            //Logo
             Route::post('/dashboard/create/logo', [DashboardController::class, 'storelogo']);
             Route::get('/dashboard/destroy/logo/{id}', [DashboardController::class, 'destroylogo']);
             Route::get('/dashboard/edit/logo/{id}', [DashboardController::class, 'editlogo']);
