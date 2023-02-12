@@ -23,9 +23,9 @@ class PesertaDidikController extends Controller
      */
     public function index()
     {
-        $pdmts = ModelPDMts::get();
-        $pdsma = ModelPDSma::get();
-        $pdpesantren = ModelPDPesantren::get();
+        $pdmts = ModelPDMts::select('pdlaki','pdperempuan','id')->selectRaw('(pdlaki + pdperempuan) as total')->get();
+        $pdsma = ModelPDSma::select('pdlaki','pdperempuan','id')->selectRaw('(pdlaki + pdperempuan) as total')->get();
+        $pdpesantren = ModelPDPesantren::select('pdlaki','pdperempuan','id')->selectRaw('(pdlaki + pdperempuan) as total')->get();
         return view('dashboard.home.pesertadidik',compact('pdmts','pdsma','pdpesantren'));
     }
     

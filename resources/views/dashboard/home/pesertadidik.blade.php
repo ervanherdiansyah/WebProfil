@@ -1,5 +1,5 @@
 @extends('dashboard.index')
-@section('title', 'Berita')
+@section('title', 'Data Peserta Didik')
 @section('content')
 
     <style>
@@ -16,9 +16,9 @@
                 <div class="row mb-2">
                     <div class="col-sm-12">
                         <ol class="breadcrumb float-sm-left">
-                            <li class="breadcrumb-item"><a href="{{ url('/admin/berita') }}">Peserta Didik Al-Istiqomah</a>
+                            <li class="breadcrumb-item"><a href="{{ url('/admin/siswa') }}">Data Peserta Didik</a>
                             </li>
-                            <li class="breadcrumb-item active">Peserta Didik Al-Istiqomah</li>
+                            <li class="breadcrumb-item active">Data Peserta Didik</li>
                         </ol>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                                                 {{ $data->pdperempuan }}
                                             </td>
                                             <td>
-                                                {{-- {{ $data->total }} --}}
+                                                {{ $data->total }}
                                             </td>
                                             <td class="project-actions text-center">
                                                 <!-- Button trigger modal -->
@@ -317,7 +317,7 @@
                                                 {{ $data->pdperempuan }}
                                             </td>
                                             <td>
-                                                {{-- {{ $data->total }} --}}
+                                                {{ $data->total }}
                                             </td>
                                             <td class="project-actions text-center">
                                                 <!-- Button trigger modal -->
@@ -517,7 +517,7 @@
                                                 {{ $data->pdperempuan }}
                                             </td>
                                             <td>
-                                                {{-- {{ $data->total }} --}}
+                                                {{ $data->total }}
                                             </td>
                                             <td class="project-actions text-center">
                                                 <!-- Button trigger modal -->

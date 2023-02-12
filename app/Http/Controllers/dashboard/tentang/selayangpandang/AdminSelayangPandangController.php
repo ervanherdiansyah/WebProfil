@@ -7,6 +7,8 @@ use App\ModelSambutan;
 use Illuminate\Http\Request;
 Use Alert;
 use App\ModelBackground;
+use App\ModelSejarah;
+use App\ModelVisiMisi;
 use Illuminate\Support\Facades\Storage;
 
 class AdminSelayangPandangController extends Controller
@@ -16,10 +18,12 @@ class AdminSelayangPandangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexsambutan()
+    public function index()
     {
         $sambutan = ModelSambutan::get();
-        return view('dashboard.tentangisteq.selayangpandang.selayangpandang',compact('sambutan'));
+        $sejarah = ModelSejarah::get();
+        $visimisi = ModelVisiMisi::get();
+        return view('dashboard.tentangisteq.selayangpandang.selayangpandang',compact('sambutan','sejarah','visimisi'));
     }
 
     /**
@@ -59,38 +63,9 @@ class AdminSelayangPandangController extends Controller
             'sambutan' => $request->sambutan,
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
-        return redirect("/admin/tentang/selayangpandang/sambutan");
+        return redirect("/admin/tentang/selayangpandang");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function showsambutan($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function editsambutan($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function updatesambutan(Request $request, $id)
     {
         Request()->validate([
@@ -122,7 +97,7 @@ class AdminSelayangPandangController extends Controller
         }
         
         Alert::success('Data berhasil diubah', 'Berhasil');
-        return redirect("/admin/tentang/selayangpandang/sambutan");
+        return redirect("/admin/tentang/selayangpandang");
     }
 
     /**
@@ -135,7 +110,113 @@ class AdminSelayangPandangController extends Controller
     {
         ModelSambutan::find($id)->delete();
         Alert::success('Data berhasil dihapus', 'Berhasil');
-        return redirect('/admin/tentang/selayangpandang/sambutan');
+        return redirect('/admin/tentang/selayangpandang');
+    }
+
+    // Sejarah
+
+    public function storesejarah(Request $request)
+    {
+        Request()->validate([
+            'heading' => 'required',
+            'deskripsi' => 'required',
+        ], [
+            'heading.required' => 'Wajib diisi!!!',
+            'deskripsi.required' => 'Wajib diisi!!!',
+        ]);
+        ModelSejarah::create([
+            'heading' => $request->heading,
+            'deskripsi' => $request->deskripsi,
+        ]);
+        Alert::success('Data berhasil ditambahkan', 'Success Message');
+        return redirect("/admin/tentang/selayangpandang");
+    }
+
+    public function updatesejarah(Request $request, $id)
+    {
+        Request()->validate([
+            'heading' => 'required',
+            'deskripsi' => 'required',
+        ], [
+            'heading.required' => 'Wajib diisi!!!',
+            'deskripsi.required' => 'Wajib diisi!!!',
+        ]);
+        
+        $data = [
+            'heading' => $request->heading,
+            'deskripsi' => $request->deskripsi,
+        ];
+        ModelSejarah::find($id)->update($data);
+        
+        Alert::success('Data berhasil diubah', 'Berhasil');
+        return redirect("/admin/tentang/selayangpandang");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroysejarah($id)
+    {
+        ModelSejarah::find($id)->delete();
+        Alert::success('Data berhasil dihapus', 'Berhasil');
+        return redirect('/admin/tentang/selayangpandang');
+    }
+
+    // Visi Misi
+
+    public function storevisimisi(Request $request)
+    {
+        Request()->validate([
+            'visi' => 'required',
+            'misi' => 'required',
+        ], [
+            'visi.required' => 'Wajib diisi!!!',
+            'misi.required' => 'Wajib diisi!!!',
+        ]);
+        ModelVisiMisi::create([
+            'visi' => $request->visi,
+            'misi' => $request->misi,
+            'tujuan' => $request->tujuan,
+        ]);
+        Alert::success('Data berhasil ditambahkan', 'Success Message');
+        return redirect("/admin/tentang/selayangpandang");
+    }
+
+    public function updatevisimisi(Request $request, $id)
+    {
+        Request()->validate([
+            'visi' => 'required',
+            'misi' => 'required',
+        ], [
+            'visi.required' => 'Wajib diisi!!!',
+            'misi.required' => 'Wajib diisi!!!',
+        ]);
+        
+        $data = [
+            'visi' => $request->visi,
+            'misi' => $request->misi,
+            'tujuan' => $request->tujuan,
+        ];
+        ModelVisiMisi::find($id)->update($data);
+        
+        Alert::success('Data berhasil diubah', 'Berhasil');
+        return redirect("/admin/tentang/selayangpandang");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyvisimisi($id)
+    {
+        ModelVisiMisi::find($id)->delete();
+        Alert::success('Data berhasil dihapus', 'Berhasil');
+        return redirect('/admin/tentang/selayangpandang');
     }
 
 }

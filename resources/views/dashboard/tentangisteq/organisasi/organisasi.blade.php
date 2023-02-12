@@ -1,5 +1,5 @@
 @extends('dashboard.index')
-@section('title', 'Alumi')
+@section('title', 'Organisasi dan Tata Kerja')
 @section('content')
 
     <style>
@@ -16,20 +16,20 @@
                 <div class="row mb-2">
                     <div class="col-sm-12">
                         <ol class="breadcrumb float-sm-left">
-                            <li class="breadcrumb-item"><a href="{{ url('/admin/alumi') }}">Alumi</a></li>
-                            <li class="breadcrumb-item active">Alumi</li>
+                            <li class="breadcrumb-item"><a href="{{ url('/admin/tentang/organisasi') }}">Organisasi dan Tata Kerja</a></li>
+                            <li class="breadcrumb-item active">Organisasi dan Tata Kerja</li>
                         </ol>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
 
-        <!--Alumi -->
+        <!-- Mengubah Tampilan Sambutan -->
         <section class="content">
             <div class="container-fluid">
                 <div class="card card-primary">
                     <div class="card-header" style="background-color: #343a40;">
-                        <h3 class="card-title">Alumi</h3>
+                        <h3 class="card-title">Struktur Organisasi</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                 <i class="fas fa-minus"></i>
@@ -48,14 +48,14 @@
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="tambahLabel">Tambah Alumi</h5>
+                                        <h5 class="modal-title" id="tambahLabel">Tambah Struktur Organisasi</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
                                         <!-- form start -->
-                                        <form action="{{ url('/admin/alumi/create') }}" method="POST"
+                                        <form action="{{ url('/admin/tentang/organisasi/create/struktur/') }}" method="POST"
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
@@ -68,34 +68,10 @@
                                                 @enderror
                                             </div>
                                             <div class="form-group">
-                                                <label>Nama Alumi</label>
-                                                <input class="form-control @error('nama') is-invalid @enderror"
-                                                    name="nama" placeholder="Enter..." value="">
-                                                @error('nama')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Angkatan</label>
-                                                <input class="form-control @error('angkatan') is-invalid @enderror"
-                                                    name="angkatan" placeholder="Enter..." value="">
-                                                @error('angkatan')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Title</label>
-                                                <input class="form-control @error('title') is-invalid @enderror"
-                                                    name="title" placeholder="Enter..." value="">
-                                                @error('title')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Quotes</label>
-                                                <textarea class="form-control @error('quotes') is-invalid @enderror" name="quotes" id="editor"
-                                                    placeholder="Enter..." value=""></textarea>
-                                                @error('quotes')
+                                                <label>Tahun Periode</label>
+                                                <input class="form-control @error('tahun_periode') is-invalid @enderror"
+                                                    name="tahun_periode" placeholder="Enter..." value="">
+                                                @error('tahun_periode')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>
@@ -120,16 +96,10 @@
                                             Gambar
                                         </th>
                                         <th>
-                                            Nama Alumi
+                                            Tahun Periode
                                         </th>
                                         <th>
-                                            Angkatan
-                                        </th>
-                                        <th>
-                                            Title
-                                        </th>
-                                        <th>
-                                            Quotes
+                                            Update at
                                         </th>
                                         <th>
                                             Aksi
@@ -137,23 +107,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($alumi as $data)
+                                    @foreach ($struktur as $data)
                                         <tr style="text-align: justify;">
                                             <td>
                                                 <img src="{{ asset('storage/' . $data->gambar) }}"
                                                     style="display:block; margin:auto; max-width: 100%">
                                             </td>
                                             <td>
-                                                {{ $data->nama }}
+                                                {{ $data->tahun_periode }}
                                             </td>
                                             <td>
-                                                {{ $data->angkatan }}
-                                            </td>
-                                            <td>
-                                                {{ $data->title }}
-                                            </td>
-                                            <td>
-                                                {!! $data->quotes !!}
+                                                {{$data->updated_at->isoFormat('D MMMM Y')}}
                                             </td>
                                             <td class="project-actions text-center">
                                                 <!-- Button trigger modal -->
@@ -168,7 +132,7 @@
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="ubahLabel">Ubah alumi</h5>
+                                                                <h5 class="modal-title" id="ubahLabel">Ubah Struktur Organisasi</h5>
                                                                 <button type="button" class="close"
                                                                     data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
@@ -177,7 +141,7 @@
                                                             <div class="modal-body">
                                                                 <!-- form start -->
                                                                 <form
-                                                                    action="{{ url('/admin/alumi/update') }}/{{ $data->id }}"
+                                                                    action="{{ url('/admin/tentang/organisasi/update/struktur') }}/{{ $data->id }}"
                                                                     method="POST" enctype="multipart/form-data">
                                                                     @csrf
                                                                     <div class="form-group">
@@ -194,39 +158,11 @@
                                                                         @enderror
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <label>Nama Alumi</label>
-                                                                        <input class="form-control" name="nama"
+                                                                        <label>Tahun Periode</label>
+                                                                        <input class="form-control" name="tahun_periode"
                                                                             placeholder="Enter..."
-                                                                            value="{{ $data->nama }}">
-                                                                        @error('nama')
-                                                                            <div class="invalid-feedback">{{ $message }}
-                                                                            </div>
-                                                                        @enderror
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label>Angkatan</label>
-                                                                        <input class="form-control" name="angkatan"
-                                                                            placeholder="Enter..."
-                                                                            value="{{ $data->angkatan }}">
-                                                                        @error('angkatan')
-                                                                            <div class="invalid-feedback">{{ $message }}
-                                                                            </div>
-                                                                        @enderror
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label>Title</label>
-                                                                        <input class="form-control" name="title"
-                                                                            placeholder="Enter..."
-                                                                            value="{{ $data->title }}">
-                                                                        @error('title')
-                                                                            <div class="invalid-feedback">{{ $message }}
-                                                                            </div>
-                                                                        @enderror
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label>Quotes</label>
-                                                                        <textarea class="form-control" name="quotes" id="editor2" placeholder="Enter..." value="">{{ $data->quotes }}</textarea>
-                                                                        @error('quotes')
+                                                                            value="{{ $data->tahun_periode }}">
+                                                                        @error('tahun_periode')
                                                                             <div class="invalid-feedback">{{ $message }}
                                                                             </div>
                                                                         @enderror
@@ -269,9 +205,9 @@
                                                                 <!-- form end -->
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <a href="{{ url('/admin/alumi') }}"
+                                                                <a href="{{ url('/admin/tentang/organisasi') }}"
                                                                     class="btn btn-success btn-sm">kembali</a>
-                                                                <a href="{{ url('/admin/alumi/destroy') }}/{{ $data->id }}"
+                                                                <a href="{{ url('/admin/tentang/organisasi/destroy/struktur') }}/{{ $data->id }}"
                                                                     class="btn btn-danger btn-sm">delete</a>
                                                             </div>
                                                         </div>

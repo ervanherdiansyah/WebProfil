@@ -8,6 +8,7 @@ use App\Http\Controllers\dashboard\BeritaController;
 use App\Http\Controllers\landing\berita\FrontBeritaController;
 use App\Http\Controllers\dashboard\PengaturanController;
 use App\Http\Controllers\dashboard\PesertaDidikController;
+use App\Http\Controllers\dashboard\tentang\organisasi\AdminOrganisasiController;
 use App\Http\Controllers\dashboard\tentang\selayangpandang\AdminSelayangPandangController;
 use App\Http\Controllers\login\AuthController;
 use App\Http\Controllers\landing\tentang\SelayangController;
@@ -131,11 +132,10 @@ Route::prefix('unit')->group(function () {
     Route::get('/detail', [FrontBeritaController::class, 'DetailBerita']);
 });
 
-Route::get('/aksescepat',[HomeController::class,'showAksesCepat']);
-Route::prefix('berita')->group(function() 
-{
-    Route::get('/',[FrontBeritaController::class,'index']);
-    Route::get('/detail',[FrontBeritaController::class,'DetailBerita']);
+Route::get('/aksescepat', [HomeController::class, 'showAksesCepat']);
+Route::prefix('berita')->group(function () {
+    Route::get('/', [FrontBeritaController::class, 'index']);
+    Route::get('/detail', [FrontBeritaController::class, 'DetailBerita']);
 });
 
 //Dashboard
@@ -154,25 +154,25 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/dashboard/edit/{id}', [DashboardController::class, 'edit']);
             Route::post('/dashboard/update/{id}', [DashboardController::class, 'update']);
 
-            //Background
+            //Home Background
             Route::post('/dashboard/create/bg', [DashboardController::class, 'storebg']);
             Route::get('/dashboard/destroy/bg/{id}', [DashboardController::class, 'destroybg']);
             Route::get('/dashboard/edit/bg/{id}', [DashboardController::class, 'editbg']);
             Route::post('/dashboard/update/bg/{id}', [DashboardController::class, 'updatebg']);
 
-            //Header
+            //Home Header
             Route::post('/dashboard/create/header', [DashboardController::class, 'storeheader']);
             Route::get('/dashboard/destroy/header/{id}', [DashboardController::class, 'destroyheader']);
             Route::get('/dashboard/edit/header/{id}', [DashboardController::class, 'editheader']);
             Route::post('/dashboard/update/header/{id}', [DashboardController::class, 'updateheader']);
 
-            //Kotak
+            //Home Kotak
             Route::post('/dashboard/create/kotak', [DashboardController::class, 'storekotak']);
             Route::get('/dashboard/destroy/kotak/{id}', [DashboardController::class, 'destroykotak']);
             Route::get('/dashboard/edit/kotak/{id}', [DashboardController::class, 'editkotak']);
             Route::post('/dashboard/update/kotak/{id}', [DashboardController::class, 'updatekotak']);
 
-            //Logo
+            //Home Logo
             Route::post('/dashboard/create/logo', [DashboardController::class, 'storelogo']);
             Route::get('/dashboard/destroy/logo/{id}', [DashboardController::class, 'destroylogo']);
             Route::get('/dashboard/edit/logo/{id}', [DashboardController::class, 'editlogo']);
@@ -227,29 +227,44 @@ Route::group(['middleware' => 'auth'], function () {
 
             //Tentang Isteq
             Route::prefix('tentang')->group(function () {
-                Route::prefix('selayangpandang')->group(function () {
-                    //Sambutan
-                    Route::get('/sambutan', [AdminSelayangPandangController::class, 'indexsambutan']);
-                    Route::post('/sambutan/create/', [AdminSelayangPandangController::class, 'storesambutan']);
-                    Route::get('/sambutan/destroy/{id}', [AdminSelayangPandangController::class, 'destroysambutan']);
-                    Route::get('/sambutan/edit/{id}', [AdminSelayangPandangController::class, 'editsambutan']);
-                    Route::post('/sambutan/update/{id}', [AdminSelayangPandangController::class, 'updatesambutan']);
+                //selayangpandang
+                Route::get('/selayangpandang', [AdminSelayangPandangController::class, 'index']);
 
-                    //Sejarah
-                    Route::get('/sejarah', [SejarahController::class, 'indexsejarah']);
+                //selayangpandang Sambutan
+                Route::post('/selayangpandang/create/sambutan', [AdminSelayangPandangController::class, 'storesambutan']);
+                Route::get('/selayangpandang/destroy/sambutan/{id}', [AdminSelayangPandangController::class, 'destroysambutan']);
+                Route::get('/selayangpandang/edit/sambutan/{id}', [AdminSelayangPandangController::class, 'editsambutan']);
+                Route::post('/selayangpandang/update/sambutan/{id}', [AdminSelayangPandangController::class, 'updatesambutan']);
 
-                    //Visi & Misi
-                    Route::get('/visi', [VisiYayasanController::class, 'indexvisi']);
+                //selayangpandang Sejarah
+                Route::post('/selayangpandang/create/sejarah', [AdminSelayangPandangController::class, 'storesejarah']);
+                Route::get('/selayangpandang/destroy/sejarah/{id}', [AdminSelayangPandangController::class, 'destroysejarah']);
+                Route::get('/selayangpandang/edit/sejarah/{id}', [AdminSelayangPandangController::class, 'editsejarah']);
+                Route::post('/selayangpandang/update/sejarah/{id}', [AdminSelayangPandangController::class, 'updatesejarah']);
 
-                    //Lokasi
-                    Route::get('/lokasi', [LokasiController::class, 'indexlokasi']);
-                });
+                //selayangpandang Visi & Misi
+                Route::post('/selayangpandang/create/visimisi', [AdminSelayangPandangController::class, 'storevisimisi']);
+                Route::get('/selayangpandang/destroy/visimisi/{id}', [AdminSelayangPandangController::class, 'destroyvisimisi']);
+                Route::get('/selayangpandang/edit/visimisi/{id}', [AdminSelayangPandangController::class, 'editvisimisi']);
+                Route::post('/selayangpandang/update/visimisi/{id}', [AdminSelayangPandangController::class, 'updatevisimisi']);
 
-                Route::prefix('organisasi')->group(function () {
-                    Route::get('/', [HomeController::class, 'showOrganisasi']);
-                    Route::get('/struktur', [StrukturYayasanController::class, 'index']);
-                    Route::get('/profil', [ProfilPimpinanController::class, 'index']);
-                });
+                //selayangpandang Lokasi
+                Route::get('/lokasi', [LokasiController::class, 'indexlokasi']);
+                
+                //Organisasi 
+                Route::get('/organisasi', [AdminOrganisasiController::class, 'index']);
+
+                //Organisasi Struktur Pimpinan
+                Route::post('/organisasi/create/struktur', [AdminOrganisasiController::class, 'storestruktur']);
+                Route::get('/organisasi/destroy/struktur/{id}', [AdminOrganisasiController::class, 'destroystruktur']);
+                Route::get('/organisasi/edit/struktur/{id}', [AdminOrganisasiController::class, 'editstruktur']);
+                Route::post('/organisasi/update/struktur/{id}', [AdminOrganisasiController::class, 'updatestruktur']);
+
+                //Organisasi Profile Pimpinan
+                Route::post('/organisasi/create/profile', [AdminOrganisasiController::class, 'storeprofile']);
+                Route::get('/organisasi/destroy/profile/{id}', [AdminOrganisasiController::class, 'destroyprofile']);
+                Route::get('/organisasi/edit/profile/{id}', [AdminOrganisasiController::class, 'editprofile']);
+                Route::post('/organisasi/update/profile/{id}', [AdminOrganisasiController::class, 'updateprofile']);
 
                 Route::prefix('divisi')->group(function () {
                     Route::get('/', [HomeController::class, 'showDivisi']);

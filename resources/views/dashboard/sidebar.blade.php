@@ -61,8 +61,8 @@
                         </ul>
                     </li>
                     <li class="nav-item menu-is-opening menu open">
-                        <a href="{{ url('admin/tentang/selayangpandang/sambutan') }}"
-                            class="nav-link {{ request()->is('admin/tentang/selayangpandang/sambutan') ? 'active' : '' }}">
+                        <a href="{{ url('admin/tentang/selayangpandang') }}"
+                            class="nav-link {{ request()->is('admin/tentang/selayangpandang','admin/tentang/organisasi') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-address-card"></i>
                             <p>
                                 Tentang Isteq
@@ -71,17 +71,17 @@
                         </a>
                         <ul class="nav nav-treeview" style="display:block; margin:10px">
                             <li class="nav-item">
-                                <a href="{{ url('/admin/tentang/selayangpandang/sambutan') }}"
-                                    class="nav-link {{ request()->is('admin/tentang/selayangpandang/sambutan') ? 'active' : '' }}">
+                                <a href="{{ url('/admin/tentang/selayangpandang') }}"
+                                    class="nav-link {{ request()->is('admin/tentang/selayangpandang') ? 'active' : '' }}">
                                     <i class="fas fa-home nav-icon"></i>
                                     <p>Selayang Pandang</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('/admin/berita') }}"
-                                    class="nav-link {{ request()->is('admin/berita') ? 'active' : '' }}">
+                                <a href="{{ url('/admin/tentang/organisasi') }}"
+                                    class="nav-link {{ request()->is('admin/tentang/organisasi') ? 'active' : '' }}">
                                     <i class="fas fa-newspaper nav-icon"></i>
-                                    <p>Berita</p>
+                                    <p>Organisasi dan Tata Kerja</p>
                                 </a>
                             </li>
                         </ul>
