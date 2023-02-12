@@ -8,7 +8,10 @@ use App\ModelHome;
 use App\ModelHeader;
 use App\ModelKotak;
 Use Alert;
+use App\ModelBackground;
+use App\ModelLogo;
 use Illuminate\Support\Facades\Storage;
+
 class DashboardController extends Controller
 {
     //BackEnd Home
@@ -22,7 +25,9 @@ class DashboardController extends Controller
         $home = ModelHome::get();
         $header = ModelHeader::get();
         $kotak = ModelKotak::get();
-        return view('dashboard.home.dashboard',compact('home','header','kotak'));
+        $background = ModelBackground::get();
+        $logo = ModelLogo::get();
+        return view('dashboard.home.dashboard',compact('home','header','kotak','background','logo'));
     }
 
     /**
@@ -302,19 +307,16 @@ class DashboardController extends Controller
             'judul1' => 'required',
             'judul2' => 'required',
             'judul3' => 'required',
-            'judul4' => 'required',
         ], [
             'judul1.required' => 'Wajib diisi!!!',
             'judul2.required' => 'Wajib diisi!!!',
             'judul3.required' => 'Wajib diisi!!!',
-            'judul4.required' => 'Wajib diisi!!!',
         ]);
 
         ModelKotak::create([
             'judul1' => $request->judul1,
             'judul2' => $request->judul2,
             'judul3' => $request->judul3,
-            'judul4' => $request->judul4,
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
         return redirect("/admin/dashboard");
@@ -355,19 +357,16 @@ class DashboardController extends Controller
             'judul1' => 'required',
             'judul2' => 'required',
             'judul3' => 'required',
-            'judul4' => 'required',
         ], [
             'judul1.required' => 'Wajib diisi!!!',
             'judul2.required' => 'Wajib diisi!!!',
             'judul3.required' => 'Wajib diisi!!!',
-            'judul4.required' => 'Wajib diisi!!!',
         ]);
 
         $data = [
             'judul1' => $request->judul1,
             'judul2' => $request->judul2,
             'judul3' => $request->judul3,
-            'judul4' => $request->judul4,
         ];
         ModelKotak::find($id)->update($data);
         
@@ -384,6 +383,173 @@ class DashboardController extends Controller
     public function destroykotak($id)
     {
         ModelKotak::find($id)->delete();
+        Alert::success('Data berhasil dihapus', 'Berhasil');
+        return redirect('/admin/dashboard');
+    }
+
+    //Background
+    public function storebg(Request $request)
+    {
+        Request()->validate([
+            'gambar' => 'required',
+        ], [
+            'gambar.required' => 'Wajib diisi!!!',
+        ]);
+
+        $file_name = $request->gambar->getClientOriginalName();
+        $image = $request->gambar->storeAs('public/gambar', $file_name);
+            // $image = $request->poto->store('thumbnail');
+        ModelBackground::create([
+            'gambar' => "gambar/".$file_name,
+        ]);
+        Alert::success('Data berhasil ditambahkan', 'Success Message');
+        return redirect("/admin/dashboard");
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showbg($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editbg($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updatebg(Request $request, $id)
+    {
+        $background = ModelBackground::find($id);
+        if (Request()->hasFile('gambar')) {
+            if (Storage::exists($background->gambar)) {
+                Storage::delete($background->gambar);
+            }
+            $file_name = $request->gambar->getClientOriginalName();
+            $image = $request->gambar->storeAs('public/gambar', $file_name);
+                // $image = $request->poto->store('thumbnail');
+            $background->update([
+                'gambar' => "gambar/".$file_name,
+            ]);
+        } else {
+            $background->update([
+            ]);
+        }
+        
+        Alert::success('Data berhasil diubah', 'Berhasil');
+        return redirect("/admin/dashboard");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroybg($id)
+    {
+        ModelBackground::find($id)->delete();
+        Alert::success('Data berhasil dihapus', 'Berhasil');
+        return redirect('/admin/dashboard');
+    }
+
+    // Logo
+
+    public function storelogo(Request $request)
+    {
+        Request()->validate([
+            'gambar' => 'required',
+        ], [
+            'gambar.required' => 'Wajib diisi!!!',
+        ]);
+
+        $file_name = $request->gambar->getClientOriginalName();
+        $image = $request->gambar->storeAs('public/gambar', $file_name);
+            // $image = $request->poto->store('thumbnail');
+        ModelLogo::create([
+            'gambar' => "gambar/".$file_name,
+        ]);
+        Alert::success('Data berhasil ditambahkan', 'Success Message');
+        return redirect("/admin/dashboard");
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showlogo($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editlogo($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updatelogo(Request $request, $id)
+    {
+        $background = ModelLogo::find($id);
+        if (Request()->hasFile('gambar')) {
+            if (Storage::exists($background->gambar)) {
+                Storage::delete($background->gambar);
+            }
+            $file_name = $request->gambar->getClientOriginalName();
+            $image = $request->gambar->storeAs('public/gambar', $file_name);
+                // $image = $request->poto->store('thumbnail');
+            $background->update([
+                'gambar' => "gambar/".$file_name,
+            ]);
+        } else {
+            $background->update([
+            ]);
+        }
+        
+        Alert::success('Data berhasil diubah', 'Berhasil');
+        return redirect("/admin/dashboard");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroylogo($id)
+    {
+        ModelLogo::find($id)->delete();
         Alert::success('Data berhasil dihapus', 'Berhasil');
         return redirect('/admin/dashboard');
     }
