@@ -6,66 +6,39 @@
 
         <div class="section-header">
           <h2>Hubungi Kami</h2>
-          <p>Jika ada pertanyaan mengenai Yayasan Pendidikan Islam Al-Istiqomah Cianjur dan lembaga yang dinaungi oleh kami, hubungi kami dengan mengisi formulir di bawah ini</p>
+          <p>Jika ada pertanyaan mengenai Yayasan Pendidikan Islam Al-Istiqomah Cianjur dan lembaga yang dinaungi oleh kami, hubungi kontak di bawah ini</p>
         </div>
 
-        <div class="row gx-lg-0 gy-4">
-
-          <div class="col-lg-4">
-
-            <div class="info-container d-flex flex-column align-items-center justify-content-center">
-              <div class="info-item d-flex">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h4>Location:</h4>
-                  <p>diisi di dashboard</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h4>Email:</h4>
-                  <p>diisi di dashboard</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex">
-                <i class="bi bi-phone flex-shrink-0"></i>
-                <div>
-                  <h4>Call:</h4>
-                  <p>diisi di dashboard</p>
-                </div>
-              </div><!-- End Info Item -->
+        <div class="row justify-content-center">
+          <div class="card col-lg-5">
+            <h5 class="card-header text-center">Call Center / Narahubung</h5>
+            <div class="card-body">
+              <table>
+                <tbody class="row">
+                  <tr class="row">
+                    <th class="col-5">Call Center Safinah</th>
+                    <td class="col-1">:</td>
+                    <td class="col-6"><a href="https://wa.me/6281284750173" target="_blank">+62 812-8475-0173</a></td>
+                  </tr>
+                  <tr class="row">
+                    <th class="col-5">Call Center Fadlah</th>
+                    <td class="col-1">:</td>
+                    <td class="col-6"><a href="https://wa.me/6285872067759" target="_blank">+62 858-7206-7759</a></td>
+                  </tr>
+                  <tr class="row">
+                    <th class="col-5">Call Center Khobar</th>
+                    <td class="col-1">:</td>
+                    <td class="col-6"><a href="https://wa.me/6285215808780" target="_blank">+62 852-1580-8780</a></td>
+                  </tr>
+                  <tr class="row">
+                    <th class="col-5">Call Center Pusaka</th>
+                    <td class="col-1">:</td>
+                    <td class="col-6"><a href="https://wa.me/6285795624117" target="_blank">+62 857-9562-4117</a></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-
           </div>
-
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="7" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div><!-- End Contact Form -->
-
         </div>
 
       </div>

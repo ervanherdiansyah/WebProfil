@@ -31,6 +31,7 @@
                 <ul>
                   <li><a href="{{url('/tentang/selayangpandang/sambutan')}}">Sambutan Kepala Yayasan</a></li>
                   <li><a href="{{url('/tentang/selayangpandang/sejarah')}}">Sejarah</a></li>
+                  <li><a href="{{url('/tentang/organisasi/profil')}}">Biografi Pimpinan Yayasan</a></li>
                   <li><a href="{{url('/tentang/selayangpandang/visi')}}">Visi dan Misi Yayasan</a></li>
                   <li><a href="{{url('/tentang/selayangpandang/lokasi')}}">Peta Lokasi</a></li>
                 </ul>
@@ -38,7 +39,6 @@
               <li class="dropdown"><a href="{{url('/tentang/organisasi')}}"><span>Organisasi dan Tata Kerja</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
                   <li><a href="{{url('/tentang/organisasi/struktur')}}">Struktur Organisasi</a></li>
-                  <li><a href="{{url('/tentang/organisasi/profil')}}">Profil Pimpinan Yayasan</a></li>
                   <li><a href="{{url('/ra')}}">RA</a></li>
                   <li><a href="{{url('/mts')}}">MTs</a></li>
                   <li><a href="{{url('/sma')}}">SMA</a></li>
@@ -61,14 +61,14 @@
                   <li><a href="{{url('/maintenance')}}">Guru</a></li>
                 </ul>
               </li>
-              <li><a href="{{url('/unit')}}">Unit Siswa & Santri</a></li>
+              <li><a href="{{url('/unit')}}">Ekskul Siswa & Santri</a></li>
               <li><a href="{{url('/berita')}}">Berita</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="{{url('/pendaftaran')}}"><span>Pendaftaran</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="{{url('/pendaftaran/santri')}}">Santri</a></li>
-              <li><a href="{{url('/pendaftaran/ra')}}">Raudhatul Athfal</a></li>
+              <!-- <li><a href="{{url('/pendaftaran/ra')}}">Raudhatul Athfal</a></li> -->
               <li><a href="{{url('/pendaftaran/mts')}}">Madrasah Tsanawiyah</a></li>
               <li><a href="{{url('/pendaftaran/sma')}}">Sekolah Menengah Atas</a></li>
             </ul>

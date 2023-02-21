@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
-    <!-- ======= About Us Section ======= -->
+    <!-- ======= Visi Misi Section ======= -->
     <section id="about" class="visimisi">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Visi, Misi, dan Tujuan<br>Yayasan Pendidikan Islam Al-Istiqomah Cianjur</h2>
+          <h2>Visi dan Misi<br>Yayasan Pendidikan Islam Al-Istiqomah Cianjur</h2>
           <p class="alamat">Kp. Ciheulang, Desa Langensari, Kec. Karangtengah, Kab. Cianjur, Jawa Barat</p>
         </div>
 

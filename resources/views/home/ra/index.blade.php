@@ -1,86 +1,48 @@
 @extends('layouts.app')
 @section('content')
-    <!-- ======= Sambutan Section ======= -->
-    <section id="about" class="sambutan">
-      <div class="container" data-aos="fade-up">
+  <!-- ======= Sambutan Section ======= -->
+  <section id="about" class="sambutan team">
+    <div class="container" data-aos="fade-up">
 
       <div class="section-header">
-          <h2>Raudlatul Athfal<br>Al-Istiqomah Cianjur</h2>
-          <p><a href="">Kepala RA</a> | <a href="">Visi Misi</a> | <a href="">Struktur Organisasi</a></p>
-        </div>
-
-        <div class="row gy-3">
-          
-          <div class="col-lg-9">
-            <div class="content ps-0 ps-lg-5 sambutan-content">
-              <p class="fst-italic">
-                    Assalamu'alaikum Wr. Wb.
-              </p>
-              <p class="text-sambutan">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis voluptates incidunt repellendus eius libero maiores voluptatem esse dolores magnam nulla? Architecto sit culpa labore, perspiciatis exercitationem minima quod laboriosam beatae omnis voluptate maxime veritatis! Ad repudiandae expedita eius, numquam, omnis necessitatibus consequatur totam architecto delectus dolore corporis laboriosam neque veritatis?
-              </p>
-              <ul>
-                <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-              </ul>
-                <p class="text-sambutan">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et nisi, optio magnam soluta aliquam nam. Beatae omnis quaerat accusamus voluptate neque adipisci quos! Laboriosam voluptate deleniti voluptas impedit unde, dolores quia nihil soluta ratione incidunt praesentium reiciendis in odit nostrum, eaque nobis, esse libero optio possimus quos cum ipsa tempore a. Earum quod exercitationem ex laborum dolor perferendis delectus deserunt!</p>
-                <p class="text-sambutan">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolorum eum, sed odit ducimus necessitatibus explicabo ipsa culpa, ad ipsum, voluptatibus placeat voluptatum. Delectus velit est sed provident molestiae, reprehenderit recusandae tempora? Facilis ratione necessitatibus unde aspernatur officiis error iusto.
-                </p>
-                <p class="fst-italic">
-                    Wassalamu'alaikum Wr. Wb.
-                </p>
-            </div>
-          </div>
-          <div class="col-lg-3 text-center">
-            <img src="{{asset('assets')}}/img/foto/only-akang.jpeg" class="img-fluid rounded-4 mb-4 foto-tokoh" alt="">
-            <h3 class="nama-tokoh">K. H. Aden Ali Abduloh, M.Pd.I.</h3>
-          </div>
-        </div>
-
+        <h2>Raudlatul Athfal<br>Al-Istiqomah Cianjur</h2>
+        <p><a href="{{url('/ra/headmaster')}}">Kepala RA</a> | <a href="{{url('/ra/visimisi')}}">Visi Misi</a> | <a href="{{url('/ra/struktur')}}">Struktur Organisasi</a></p>
       </div>
-    </section><!-- End About Us Section -->
 
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
+      <div class="row gy-3">
         
-
-        <div class="row gy-4">
-          <div class="col-lg-6">
-            <h3>Voluptatem dignissimos provident quasi corporis</h3>
-            <img src="{{asset('assets')}}/img/about.jpg" class="img-fluid rounded-4 mb-4" alt="">
-            <p>Ut fugiat ut sunt quia veniam. Voluptate perferendis perspiciatis quod nisi et. Placeat debitis quia recusandae odit et consequatur voluptatem. Dignissimos pariatur consectetur fugiat voluptas ea.</p>
-            <p>Temporibus nihil enim deserunt sed ea. Provident sit expedita aut cupiditate nihil vitae quo officia vel. Blanditiis eligendi possimus et in cum. Quidem eos ut sint rem veniam qui. Ut ut repellendus nobis tempore doloribus debitis explicabo similique sit. Accusantium sed ut omnis beatae neque deleniti repellendus.</p>
-          </div>
-          <div class="col-lg-6">
-            <div class="content ps-0 ps-lg-5">
-              <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
-              </p>
-              <ul>
-                <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-              </ul>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-              </p>
-
-              <div class="position-relative mt-4">
-                <img src="{{asset('assets')}}/img/about-2.jpg" class="img-fluid rounded-4" alt="">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-              </div>
-            </div>
+        <div class="col-lg-8">
+          <div class="content ps-0 ps-lg-5 sambutan-content">
+            <h3>Selayang Pandang</h3>
+            <p class="text-sambutan">
+              SMAN 1 Cianjur didirikan pada tahun 1959 atas prakarsa tokoh masyarakat Cianjur beserta DPRD dan para orang tua murid yang anknya sudah tamat SLTP.
+            </p>
+            <p class="text-sambutan">
+              SMAN 1 Cianjur pada mulanya bernama SMA Badak Putih (swasta) dengan kepala sekolah Bapak Suryadi Wonoerdjojo. Pada bulan Oktober 1959 SMA Badak putih resmi berubah nama menjadi SMA Negeri dengan SK Menteri P&K tanggal 15 Oktober 1959 No. 72/SK/B.III. Upacara peresmiannya pada tanggal 15 November 1959 di gedung Tjung Hwa Tjung Hwee yang kini bernama Wisma Karya. Mulai tanggal 1 Mei 1960 dengan SK Menteri P&K tanggal 24 April 1960 No. 34037/C.I diangkatlah Bapak Moh. Muchtar sebagai direktur SMA Negeri Cianjur.
+            </p>
+            <p class="text-sambutan">
+              Pada tanggal 26 Desember 1964 dilakukan peletakan batu pertama pembangunan gedung SMA Negeri Cianjur (kampus yang ada sekarang) yang dihadiri oleh tokoh-tokoh masyarakat, Pemerintah Daerah, dan Provinsi juga CV. Haruman sebagai pelaksana pembangunan.
+            </p>
+            <p class="text-sambutan">
+              Kemudian tanggal 19 januari 1966 gedung SMA Negeri Cianjur mulai dipakai dan pimpinannya mulai tanggal 20 April 1966 diserahterinakab dari Moh. Muchtar kepada Bapak Endy Suhenda, lalu tanggal 2 september 1966 pimpinan SMA Negeri Cianjur diserahkan pada Bapak D. Effendi. Mulai tanggal 19 Oktober 1967 pimpinan SMA Negeri Cianjur diserahterimakan lagi kepada Bapak Drs. Mamin Wijayakusuma.
+            </p>
+            <p class="text-sambutan">
+              Pada tahun 1980 tepatnya bulan April, Bapak Drs. Mamin Wijayakusuma digantikan oleh Bapak Drs. A. Riswaya sampai tahun 1983. Kemudian Desember 1983 Bapak Drs. A. Riswaya diganti oleh Bapak Drs. Maryono sampai tahun 1988. Bulan Juli 1988 Bapak Drs.Maryono digantikan oleh Bapak Drs. A. Subarkah sampai tahun 1993, lalu pada bulan Januari 1993 Bapak Drs. A. Subarkah digantikan oleh Bapak Drs. Nanai Said, yang kemudian digantikan oleh Bapak Drs. A. S. Arifin Sulaeman.
+            </p>
           </div>
         </div>
-
+        <div class="col-lg-4 text-center">
+          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <img src="{{asset('assets')}}/img/team/team-2.jpg" class="img-fluid" alt="">
+              <h4>M. Agung Husaini</h4>
+              <span style="font-size:20px;">Kepala RA</span>
+            </div>
+          </div><!-- End Team Member -->
+        </div>
       </div>
-    </section><!-- End About Us Section -->
 
+    </div>
+  </section><!-- End About Us Section -->
+  
 @endsection

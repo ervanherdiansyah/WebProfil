@@ -860,7 +860,7 @@ section {
   }
 }
 /*--------------------------------------------------------------
-# Visi Misi Section
+# Visi Misi Yayasan Section
 --------------------------------------------------------------*/
 .visimisi .alamat{
   margin-bottom: 0;
@@ -887,6 +887,69 @@ section {
 .visimisi .content p:last-child {
   margin-bottom: 0;
 }
+
+@-webkit-keyframes pulsate-btn {
+  0% {
+    transform: scale(0.6, 0.6);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+
+@keyframes pulsate-btn {
+  0% {
+    transform: scale(0.6, 0.6);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+/*--------------------------------------------------------------
+# Visi Misi Sekolah Section
+--------------------------------------------------------------*/
+.visimisi-sekolah .alamat{
+  margin-bottom: 0;
+  color: black;
+  font-size: 17px;
+}
+
+.visimisi-sekolah .teks-visi p{
+  margin-top: -10px;
+  margin-bottom: 35px;
+}
+
+.visimisi-sekolah .teks-misi ol{
+  margin-top: -10px;
+  margin-bottom: 35px;
+}
+
+.visimisi-sekolah .teks-tujuan ol{
+  margin-top: -10px;
+  margin-bottom: 35px;
+}
+
+.visimisi-sekolah ol li{
+  text-align: justify;
+}
+
+.visimisi-sekolah .visimisi-sekolah-content {
+  margin-bottom: 5px;
+}
+
+.visimisi-sekolah h3 {
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-family: var(--font-secondary);
+}
+
 
 @-webkit-keyframes pulsate-btn {
   0% {
@@ -1196,45 +1259,67 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Profil Pimpinan YPI Section
+# Biografi Pimpinan YPI Section
 --------------------------------------------------------------*/
-.profilpimpinan .foto-tokoh img{
-  height: 400px;
+.biografi .nama-tokoh{
+  margin-bottom: 0;
+  color: black;
+  font-size: 20px;
 }
 
-.profilpimpinan .ttd-akang img{
-  height: 50px;
+.biografi .foto-tokoh{
+  height: 500px;
 }
 
-.profilpimpinan .conten-profil{
-  display: inline;
+.biografi .text-biografi{
+  text-align: justify;
+  text-indent: 30px;
 }
 
-.profilpimpinan h3 {
+.biografi .biografi-content li{
+  text-align: justify;
+}
+
+.biografi h3 {
   font-weight: 700;
   font-size: 28px;
   margin-bottom: 20px;
   font-family: var(--font-secondary);
 }
 
-.profilpimpinan .sambutan-content h3 {
-  font-weight: 700;
-  font-size: 20px;
-  margin-bottom: 20px;
-  font-family: var(--font-secondary);
+.biografi .call-us {
+  left: 10%;
+  right: 10%;
+  bottom: 0;
+  background-color: #fff;
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  text-align: center;
 }
 
-.profilpimpinan .content ul {
+.biografi .call-us h4 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.biografi .call-us p {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.biografi .content ul {
   list-style: none;
   padding: 0;
 }
 
-.profilpimpinan .content ul li {
+.biografi .content ul li {
   padding: 0 0 10px 30px;
   position: relative;
 }
 
-.profilpimpinan .content ul i {
+.biografi .content ul i {
   position: absolute;
   font-size: 20px;
   left: 0;
@@ -1242,17 +1327,8 @@ section {
   color: var(--color-primary);
 }
 
-.profilpimpinan .content p:last-child {
+.biografi .content p:last-child {
   margin-bottom: 0;
-}
-
-@media (max-width: 1279px) {
-  .profilpimpinan .foto-tokoh img{
-    height: 400px;
-    text-align: center;
-    margin-top: -50px;
-    margin-bottom: 20px;
-  }
 }
 
 @-webkit-keyframes pulsate-btn {
@@ -2295,6 +2371,13 @@ section {
   font-size: 20px;
 }
 
+.team .anggota h4 {
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 2px;
+  font-size: 17px;
+}
+
 .team .member span {
   font-style: italic;
   display: block;
@@ -2798,7 +2881,7 @@ section {
 }
 
 .hero .gambar-depan{
-  height: 125%;
+  height: 100%;
 }
 
 .hero h2 {

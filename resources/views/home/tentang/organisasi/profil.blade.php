@@ -1,119 +1,34 @@
 @extends('layouts.app')
 @section('content')
-    <!-- ======= Profil Pimpinan YPI Section ======= -->
-    <section id="about" class="profilpimpinan">
+    <!-- ======= Biografi Section ======= -->
+    <section id="about" class="biografi">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Profil Pimpinan<br>Yayasan Pendidikan Islam Al-Istiqomah Cianjur</h2>
+          <h2>Biografi Pimpinan<br>Yayasan Pendidikan Islam Al-Istiqomah Cianjur</h2>
+          <p class="nama-tokoh">K. H. Aden Ali Abduloh, M.Pd.I.</p>
         </div>
 
-        <div class="row justify-content-center align-items-center">
-            <div class="col-lg-4 col-sm-12 text-center foto-tokoh">
-                <img src="{{asset('assets')}}/img/foto/only-akang.jpeg" class="img-fluid rounded-4" alt="">
+        <div class="row gy-3">
+          <div class="col-lg-3 text-center">
+            <img src="{{asset('assets')}}/img/foto/akang-teteh.jpeg" class="img-fluid rounded-4 mb-4 foto-tokoh" alt="">
+            <!-- <h3 class="nama-tokoh">K. H. Aden Ali Abduloh, M.Pd.I.</h3> -->
+          </div>
+          <div class="col-lg-9">
+            <div class="content ps-0 ps-lg-5 biografi-content">
+              <p class="text-biografi">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis voluptates incidunt repellendus eius libero maiores voluptatem esse dolores magnam nulla? Architecto sit culpa labore, perspiciatis exercitationem minima quod laboriosam beatae omnis voluptate maxime veritatis! Ad repudiandae expedita eius, numquam, omnis necessitatibus consequatur totam architecto delectus dolore corporis laboriosam neque veritatis?
+              </p>
+              <p class="text-biografi">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et nisi, optio magnam soluta aliquam nam. Beatae omnis quaerat accusamus voluptate neque adipisci quos! Laboriosam voluptate deleniti voluptas impedit unde, dolores quia nihil soluta ratione incidunt praesentium reiciendis in odit nostrum, eaque nobis, esse libero optio possimus quos cum ipsa tempore a. Earum quod exercitationem ex laborum dolor perferendis delectus deserunt!</p>
+                <p class="text-biografi">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolorum eum, sed odit ducimus necessitatibus explicabo ipsa culpa, ad ipsum, voluptatibus placeat voluptatum. Delectus velit est sed provident molestiae, reprehenderit recusandae tempora? Facilis ratione necessitatibus unde aspernatur officiis error iusto.
+                </p>
             </div>
-            <!-- <div class="col-lg-2 col-sm-5">
-                <div class="content">
-                    <ul>
-                        <li>Nama Lengkap</li>
-                        <li>Tempat, Tgl Lahir</li>
-                        <li>Pendidikan</li>
-                        <li>Jabatan</li>
-                        <li>Alamat</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-2 col-sm-1">
-                <div class="content">
-                    <ul>
-                        <li> : </li>
-                        <li> : </li>
-                        <li> : </li>
-                        <li> : </li>
-                        <li> : </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-                <div class="content">
-                    <ul>
-                        <li>K. H. Aden Ali Abduloh, M.Pd.I.</li>
-                        <li>Cianjur, 1 Januari 1970</li>
-                        <li>S2 - Manajemen</li>
-                        <li>Pimpinan Pondok Pesantren</li>
-                        <li>Kp. Ciheulang, Desa Langensari, Kec. Karangtengah, Kab. Cianjur</li>
-                    </ul>
-                    <div class="mt-5 pt-5">
-                        <div class="content text-center">
-                            <h3>Tanda Tangan</h3>
-                        </div>
-                        <div class="content sambutan-content ttd-akang text-center">
-                            <img src="{{asset('assets')}}/img/foto/ttd-akang.jpeg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <table class="col-lg-8 col-sm-12 content" style="border:solid red 1px;">
-                <tbody>
-                    <tr>
-                        <th class="col-lg-2 col-sm-5">Nama Lengkap</th>
-                        <td class="col-sm-1"> : </td>
-                        <td class="col-sm-6">K. H. Aden Ali Abduloh, M.Pd.I.</td>
-                    </tr>
-                    <tr>
-                        <th>Tempat, Tanggal Lahir</th>
-                        <td> : </td>
-                        <td>Cianjur, 1 Januari 1970</td>
-                    </tr>
-                    <tr>
-                        <th>Pendidikan</th>
-                        <td> : </td>
-                        <td>S2 - Manajemen</td>
-                    </tr>
-                    <tr>
-                        <th>Jabatan</th>
-                        <td> : </td>
-                        <td>Pimpinan Pondok Pesantren</td>
-                    </tr>
-                    <tr>
-                        <th>Alamat</th>
-                        <td> : </td>
-                        <td>Kp. Ciheulang, Desa Langensari, Kec. Karangtengah, Kab. Cianjur</td>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- <div class="col-lg-2 col-sm-1">
-                <div class="content">
-                    <ul>
-                        <li> : </li>
-                        <li> : </li>
-                        <li> : </li>
-                        <li> : </li>
-                        <li> : </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-                <div class="content">
-                    <ul>
-                        <li>K. H. Aden Ali Abduloh, M.Pd.I.</li>
-                        <li>Cianjur, 1 Januari 1970</li>
-                        <li>S2 - Manajemen</li>
-                        <li>Pimpinan Pondok Pesantren</li>
-                        <li>Kp. Ciheulang, Desa Langensari, Kec. Karangtengah, Kab. Cianjur</li>
-                    </ul>
-                    <div class="mt-5 pt-5">
-                        <div class="content text-center">
-                            <h3>Tanda Tangan</h3>
-                        </div>
-                        <div class="content sambutan-content ttd-akang text-center">
-                            <img src="{{asset('assets')}}/img/foto/ttd-akang.jpeg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            
+          </div>
         </div>
-    </section><!-- End Profil Pimpinan YPI Section -->
+
+      </div>
+    </section><!-- End About Us Section -->
 
 @endsection
