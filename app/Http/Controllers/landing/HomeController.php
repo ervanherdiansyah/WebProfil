@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing;
 
 use App\Http\Controllers\Controller;
+use App\ModelAlumi;
 use Illuminate\Http\Request;
 use App\ModelHome;
 use App\ModelHeader;
@@ -10,6 +11,13 @@ use App\ModelKotak;
 use App\User;
 use App\ModelBerita;
 use App\ModelBeritaKategori;
+use App\ModelBackground;
+use App\ModelLogo;
+use App\ModelPDMts;
+use App\ModelPDPesantren;
+use App\ModelPDSma;
+use App\ModelSambutan;
+
 
 class HomeController extends Controller
 {
@@ -21,11 +29,18 @@ class HomeController extends Controller
     public function index()
     {
         $home = ModelHome::first();
+        $background = ModelBackground::first();
         $header = ModelHeader::first();
         $kotak = ModelKotak::get();
         $berita = ModelBerita::where('is_active', 1)->get();
         $kategori = ModelBeritaKategori::get();
-        return view('home.index',compact('home','header','kotak','berita','kategori'));
+        $sambutan = ModelSambutan::first();
+        $pdmts = ModelPDMts::select('pdlaki','pdperempuan')->selectRaw('(pdlaki + pdperempuan) as total')->first();
+        $pdsma = ModelPDSma::select('pdlaki','pdperempuan')->selectRaw('(pdlaki + pdperempuan) as total')->first();
+        $pdpesantren = ModelPDPesantren::select('pdlaki','pdperempuan')->selectRaw('(pdlaki + pdperempuan) as total')->first();
+        $alumi = ModelAlumi::get();
+        $logo = ModelLogo::get();
+        return view('home.index',compact('home','header','kotak','berita','kategori','background','sambutan','pdmts','pdsma','pdpesantren','alumi','logo'));
     }
 
     public function showMaintenance()
@@ -49,7 +64,13 @@ class HomeController extends Controller
 
     public function showVideoProfil()
     {
-        return view('home.vidprofil');
+        $home = ModelHome::first();
+        $background = ModelBackground::first();
+        $header = ModelHeader::first();
+        $kotak = ModelKotak::get();
+        $berita = ModelBerita::where('is_active', 1)->get();
+        $kategori = ModelBeritaKategori::get();
+        return view('home.vidprofil',compact('home','header','kotak','berita','kategori','background'));
     }
 
     public function showUnitSiswa()

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKotakTable extends Migration
+class CreateSejarahTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateKotakTable extends Migration
      */
     public function up()
     {
-        Schema::create('kotak', function (Blueprint $table) {
+        Schema::create('sejarah', function (Blueprint $table) {
             $table->id();
-            $table->string('judul1');
-            $table->string('judul2');
-            $table->string('judul3');
-            $table->softDeletes();
+            $table->string('heading');
+            $table->longText('deskripsi');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateKotakTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kotak');
+        Schema::dropIfExists('sejarah');
     }
 }

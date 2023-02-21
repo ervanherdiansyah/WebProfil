@@ -15,125 +15,156 @@
     </div> --}}
     <!-- Sidebar -->
     <div class="sidebar" style="overflow-y: auto;">
-    <div class="sidebar">
-        {{-- Sidebar Menu --}}
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
-                <li class="nav-item menu-is-opening menu open">
-                    <a href="{{ url('/admin/dashboard') }}"
-                        class="nav-link {{ request()->is('admin/dashboard','admin/berita') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview" style="display:block; margin:10px">
-                        <li class="nav-item">
-                            <a href="{{ url('/admin/dashboard') }}"
-                                class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
-                                <i class="fas fa-home nav-icon"></i>
-                                <p>Home</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('/admin/berita') }}"
-                                class="nav-link {{ request()->is('admin/berita') ? 'active' : '' }}">
-                                <i class="fas fa-newspaper nav-icon"></i>
-                                <p>Berita</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/admin/tentangisteq') }}"
-                        class="nav-link {{ request()->is('admin/tentangisteq') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-address-card"></i>
-                        <p>
-                            Tentang Isteq
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/admin/aksescepat') }}"
-                        class="nav-link {{ request()->is('admin/aksescepat') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-forward"></i>
-                        <p>
-                            Akses Cepat
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/admin/pendaftaran') }}"
-                        class="nav-link {{ request()->is('admin/pendaftaran') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-registered"></i>
-                        <p>
-                            Pendaftaran
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/admin/sma') }}"
-                        class="nav-link {{ request()->is('admin/sma') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-school"></i>
-                        <p>
-                            SMA
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/admin/mts') }}"
-                        class="nav-link {{ request()->is('admin/mts') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-school"></i>
-                        <p>
-                            MTS
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/admin/ra') }}" class="nav-link {{ request()->is('admin/ra') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-school"></i>
-                        <p>
-                            RA
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item menu-is-opening menu-open">
-                    <a href=""
-                        class="nav-link {{ request()->is('admin/profile', 'admin/updatepassword') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-cog"></i>
-                        <p>
-                            Setting
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview" style="display:block; margin:10px">
-                        <li class="nav-item">
-                            <a href="{{ url('/admin/profile') }}"
-                                class="nav-link {{ request()->is('admin/profile') ? 'active' : '' }}">
-                                <i class="fas fa-user-edit nav-icon"></i>
-                                <p>Profile</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('/admin/updatepassword') }}"
-                                class="nav-link {{ request()->is('admin/updatepassword') ? 'active' : '' }}">
-                                <i class="fas fa-edit nav-icon"></i>
-                                <p>Ubah Password</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('logout')}}"
-                                class="nav-link">
-                                <i class="fas fa-sign-out-alt nav-icon"></i>
-                                <p>Logout</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <!-- /.sidebar -->
+        <div class="sidebar">
+            {{-- Sidebar Menu --}}
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <li class="nav-item menu-is-opening menu open">
+                        <a href="{{ url('/admin/dashboard') }}"
+                            class="nav-link {{ request()->is('admin/dashboard', 'admin/berita','admin/siswa','admin/alumi') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Dashboard
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display:block; margin:10px">
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/dashboard') }}"
+                                    class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
+                                    <i class="fas fa-home nav-icon"></i>
+                                    <p>Home</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/berita') }}"
+                                    class="nav-link {{ request()->is('admin/berita') ? 'active' : '' }}">
+                                    <i class="fas fa-newspaper nav-icon"></i>
+                                    <p>Berita</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/siswa') }}"
+                                    class="nav-link {{ request()->is('admin/siswa') ? 'active' : '' }}">
+                                    <i class="fas fa-newspaper nav-icon"></i>
+                                    <p>Siswa Peserta Didik</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/alumi') }}"
+                                    class="nav-link {{ request()->is('admin/alumi') ? 'active' : '' }}">
+                                    <i class="fas fa-newspaper nav-icon"></i>
+                                    <p>Alumi</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item menu-is-opening menu open">
+                        <a href="{{ url('admin/tentang/selayangpandang') }}"
+                            class="nav-link {{ request()->is('admin/tentang/selayangpandang','admin/tentang/organisasi') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-address-card"></i>
+                            <p>
+                                Tentang Isteq
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display:block; margin:10px">
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/tentang/selayangpandang') }}"
+                                    class="nav-link {{ request()->is('admin/tentang/selayangpandang') ? 'active' : '' }}">
+                                    <i class="fas fa-home nav-icon"></i>
+                                    <p>Selayang Pandang</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/tentang/organisasi') }}"
+                                    class="nav-link {{ request()->is('admin/tentang/organisasi') ? 'active' : '' }}">
+                                    <i class="fas fa-newspaper nav-icon"></i>
+                                    <p>Organisasi dan Tata Kerja</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/admin/aksescepat') }}"
+                            class="nav-link {{ request()->is('admin/aksescepat') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-forward"></i>
+                            <p>
+                                Akses Cepat
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/admin/pendaftaran') }}"
+                            class="nav-link {{ request()->is('admin/pendaftaran') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-registered"></i>
+                            <p>
+                                Pendaftaran
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/admin/sma') }}"
+                            class="nav-link {{ request()->is('admin/sma') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-school"></i>
+                            <p>
+                                SMA
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/admin/mts') }}"
+                            class="nav-link {{ request()->is('admin/mts') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-school"></i>
+                            <p>
+                                MTS
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/admin/ra') }}"
+                            class="nav-link {{ request()->is('admin/ra') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-school"></i>
+                            <p>
+                                RA
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item menu-is-opening menu-open">
+                        <a href=""
+                            class="nav-link {{ request()->is('admin/profile', 'admin/updatepassword') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-cog"></i>
+                            <p>
+                                Setting
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display:block; margin:10px">
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/profile') }}"
+                                    class="nav-link {{ request()->is('admin/profile') ? 'active' : '' }}">
+                                    <i class="fas fa-user-edit nav-icon"></i>
+                                    <p>Profile</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/updatepassword') }}"
+                                    class="nav-link {{ request()->is('admin/updatepassword') ? 'active' : '' }}">
+                                    <i class="fas fa-edit nav-icon"></i>
+                                    <p>Ubah Password</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('logout') }}" class="nav-link">
+                                    <i class="fas fa-sign-out-alt nav-icon"></i>
+                                    <p>Logout</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- /.sidebar -->
 </aside>

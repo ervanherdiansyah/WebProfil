@@ -138,6 +138,70 @@ theme: 'bootstrap4',
                 console.error(error);
             });
     </script>
+    <script>
+        // ckeditor
+        ClassicEditor
+            .create(document.querySelector('#editor3'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        // ckeditor
+        ClassicEditor
+            .create(document.querySelector('#editor4'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        // ckeditor
+        ClassicEditor
+            .create(document.querySelector('#editor5'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        // ckeditor
+        ClassicEditor
+            .create(document.querySelector('#editor6'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        // ckeditor
+        ClassicEditor
+            .create(document.querySelector('#editor7'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        // ckeditor
+        ClassicEditor
+            .create(document.querySelector('#editor8'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        // ckeditor
+        ClassicEditor
+            .create(document.querySelector('#editor9'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        // ckeditor
+        ClassicEditor
+            .create(document.querySelector('#editor0'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 
     <script>
         // datetimepicker
