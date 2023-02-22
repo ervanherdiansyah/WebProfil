@@ -14,15 +14,14 @@
         </a>
     </div> --}}
     <!-- Sidebar -->
-    <div class="sidebar" style="overflow-y: auto;">
         <div class="sidebar">
             {{-- Sidebar Menu --}}
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
-                    <li class="nav-item menu-is-opening menu open">
-                        <a href="{{ url('/admin/dashboard') }}"
-                            class="nav-link {{ request()->is('admin/dashboard', 'admin/berita','admin/siswa','admin/alumi') ? 'active' : '' }}">
+                    <li class="nav-item">
+                        <a href=""
+                            class="nav-link {{ request()->is('admin/dashboard','admin/siswa','admin/alumi') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
@@ -35,13 +34,6 @@
                                     class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
                                     <i class="fas fa-home nav-icon"></i>
                                     <p>Home</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ url('/admin/berita') }}"
-                                    class="nav-link {{ request()->is('admin/berita') ? 'active' : '' }}">
-                                    <i class="fas fa-newspaper nav-icon"></i>
-                                    <p>Berita</p>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -60,7 +52,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item menu-is-opening menu open">
+                    <li class="nav-item">
                         <a href="{{ url('admin/tentang/selayangpandang') }}"
                             class="nav-link {{ request()->is('admin/tentang/selayangpandang','admin/tentang/organisasi') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-address-card"></i>
@@ -88,21 +80,69 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ url('/admin/aksescepat') }}"
-                            class="nav-link {{ request()->is('admin/aksescepat') ? 'active' : '' }}">
+                            class="nav-link {{ request()->is('admin/aksescepat/aplikasi','admin/aksescepat/ekskul','admin/aksescepat/berita') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-forward"></i>
                             <p>
                                 Akses Cepat
+                                <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview" style="display:block; margin:10px">
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/aksescepat/aplikasi') }}"
+                                    class="nav-link {{ request()->is('admin/aksescepat/aplikasi') ? 'active' : '' }}">
+                                    <i class="fas fa-home nav-icon"></i>
+                                    <p>Aplikasi</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/aksescepat/ekskul') }}"
+                                    class="nav-link {{ request()->is('admin/aksescepat/ekskul') ? 'active' : '' }}">
+                                    <i class="fas fa-newspaper nav-icon"></i>
+                                    <p>Ekskul Siswa dan Santri</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/aksescepat/berita') }}"
+                                    class="nav-link {{ request()->is('admin/aksescepat/berita') ? 'active' : '' }}">
+                                    <i class="fas fa-newspaper nav-icon"></i>
+                                    <p>Berita</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a href="{{ url('/admin/pendaftaran') }}"
-                            class="nav-link {{ request()->is('admin/pendaftaran') ? 'active' : '' }}">
+                            class="nav-link {{ request()->is('admin/pendaftaran/santri','admin/pendaftaran/mts','admin/pendaftaran/sma') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-registered"></i>
                             <p>
                                 Pendaftaran
+                                <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview" style="display:block; margin:10px">
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/pendaftaran/santri') }}"
+                                    class="nav-link {{ request()->is('admin/pendaftaran/santri') ? 'active' : '' }}">
+                                    <i class="fas fa-home nav-icon"></i>
+                                    <p>Pendaftaran Santri</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/pendaftaran/mts') }}"
+                                    class="nav-link {{ request()->is('admin/pendaftaran/mts') ? 'active' : '' }}">
+                                    <i class="fas fa-newspaper nav-icon"></i>
+                                    <p>Pendaftaran MTs</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/pendaftaran/sma') }}"
+                                    class="nav-link {{ request()->is('admin/pendaftaran/sma') ? 'active' : '' }}">
+                                    <i class="fas fa-newspaper nav-icon"></i>
+                                    <p>Pendaftaran SMA</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a href="{{ url('/admin/sma') }}"
@@ -131,7 +171,16 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item menu-is-opening menu-open">
+                    <li class="nav-item">
+                        <a href="{{ url('/admin/contact') }}"
+                            class="nav-link {{ request()->is('admin/contact') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-school"></i>
+                            <p>
+                                Contact Us
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href=""
                             class="nav-link {{ request()->is('admin/profile', 'admin/updatepassword') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-cog"></i>

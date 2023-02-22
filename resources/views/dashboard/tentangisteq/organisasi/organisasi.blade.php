@@ -24,7 +24,7 @@
             </div><!-- /.container-fluid -->
         </section>
 
-        <!-- Mengubah Tampilan Sambutan -->
+        <!-- Mengubah Tampilan Organigram -->
         <section class="content">
             <div class="container-fluid">
                 <div class="card card-primary">
@@ -92,7 +92,7 @@
                             <table class="table table-striped table-bordered projects">
                                 <thead>
                                     <tr style="text-align: center;">
-                                        <th>
+                                        <th style="width: 50%">
                                             Gambar
                                         </th>
                                         <th>
@@ -101,17 +101,17 @@
                                         <th>
                                             Update at
                                         </th>
-                                        <th>
+                                        <th style="width: 15%">
                                             Aksi
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($struktur as $data)
-                                        <tr style="text-align: justify;">
+                                        <tr style="text-align:justify;">
                                             <td>
                                                 <img src="{{ asset('storage/' . $data->gambar) }}"
-                                                    style="display:block; margin:auto; max-width: 100%">
+                                                    style="display:block; margin:auto; max-width: 50%">
                                             </td>
                                             <td>
                                                 {{ $data->tahun_periode }}

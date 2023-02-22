@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ModelProfilePimpinan extends Model
+class ModelVisiMisiSma extends Model
 {
-    protected $table = 'profile';
+    protected $table = 'visimisisma';
     protected $guarded = ['id'];
 }

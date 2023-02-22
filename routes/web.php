@@ -1,13 +1,21 @@
 <?php
 
 use App\Http\Controllers\dashboard\AdminAlumiController;
+use App\Http\Controllers\dashboard\aksescepat\berita\AdminBeritaController;
+use App\Http\Controllers\dashboard\aksescepat\ekstrakurikuler\AdminEkstrakurikulerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\landing\HomeController;
 use App\Http\Controllers\dashboard\DashboardController;
 use App\Http\Controllers\dashboard\BeritaController;
+use App\Http\Controllers\dashboard\contact\AdminContactController;
+use App\Http\Controllers\dashboard\pendaftaran\mts\AdminMtsController;
+use App\Http\Controllers\dashboard\pendaftaran\santri\AdminSantriController;
+use App\Http\Controllers\dashboard\pendaftaran\sma\AdminSmaController;
 use App\Http\Controllers\landing\berita\FrontBeritaController;
 use App\Http\Controllers\dashboard\PengaturanController;
 use App\Http\Controllers\dashboard\PesertaDidikController;
+use App\Http\Controllers\dashboard\sma\SmaAdminController;
+use App\Http\Controllers\dashboard\sma\SmaController as SmaSmaController;
 use App\Http\Controllers\dashboard\tentang\organisasi\AdminOrganisasiController;
 use App\Http\Controllers\dashboard\tentang\selayangpandang\AdminSelayangPandangController;
 use App\Http\Controllers\login\AuthController;
@@ -166,6 +174,12 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/dashboard/edit/header/{id}', [DashboardController::class, 'editheader']);
             Route::post('/dashboard/update/header/{id}', [DashboardController::class, 'updateheader']);
 
+            //Home Program Unggulan
+            Route::post('/dashboard/create/program', [DashboardController::class, 'storeprogram']);
+            Route::get('/dashboard/destroy/program/{id}', [DashboardController::class, 'destroyprogram']);
+            Route::get('/dashboard/edit/program/{id}', [DashboardController::class, 'editprogram']);
+            Route::post('/dashboard/update/program/{id}', [DashboardController::class, 'updateprogram']);
+
             //Home Kotak
             Route::post('/dashboard/create/kotak', [DashboardController::class, 'storekotak']);
             Route::get('/dashboard/destroy/kotak/{id}', [DashboardController::class, 'destroykotak']);
@@ -248,10 +262,16 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/selayangpandang/edit/visimisi/{id}', [AdminSelayangPandangController::class, 'editvisimisi']);
                 Route::post('/selayangpandang/update/visimisi/{id}', [AdminSelayangPandangController::class, 'updatevisimisi']);
 
+                //selayangpandang Biografi Pimpinan
+                Route::post('/selayangpandang/create/biografi', [AdminSelayangPandangController::class, 'storebiografi']);
+                Route::get('/selayangpandang/destroy/biografi/{id}', [AdminSelayangPandangController::class, 'destroybiografi']);
+                Route::get('/selayangpandang/edit/biografi/{id}', [AdminSelayangPandangController::class, 'editbiografi']);
+                Route::post('/selayangpandang/update/biografi/{id}', [AdminSelayangPandangController::class, 'updatebiografi']);
+
                 //selayangpandang Lokasi
                 Route::get('/lokasi', [LokasiController::class, 'indexlokasi']);
-                
-                //Organisasi 
+
+                //Organisasi
                 Route::get('/organisasi', [AdminOrganisasiController::class, 'index']);
 
                 //Organisasi Struktur Pimpinan
@@ -260,17 +280,173 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/organisasi/edit/struktur/{id}', [AdminOrganisasiController::class, 'editstruktur']);
                 Route::post('/organisasi/update/struktur/{id}', [AdminOrganisasiController::class, 'updatestruktur']);
 
-                //Organisasi Profile Pimpinan
-                Route::post('/organisasi/create/profile', [AdminOrganisasiController::class, 'storeprofile']);
-                Route::get('/organisasi/destroy/profile/{id}', [AdminOrganisasiController::class, 'destroyprofile']);
-                Route::get('/organisasi/edit/profile/{id}', [AdminOrganisasiController::class, 'editprofile']);
-                Route::post('/organisasi/update/profile/{id}', [AdminOrganisasiController::class, 'updateprofile']);
-
                 Route::prefix('divisi')->group(function () {
                     Route::get('/', [HomeController::class, 'showDivisi']);
                     Route::get('/media', [DivisiMediaController::class, 'index']);
                     Route::get('/it', [DivisiITController::class, 'index']);
                 });
+            });
+
+            //Akses Cepat
+            Route::prefix('aksescepat')->group(function () {
+                //Aplikasi
+                Route::get('/aplikasi', [AdminSelayangPandangController::class, 'indexaplikasi']);
+
+                //Ekstrakurikuler
+                Route::get('/ekskul', [AdminEkstrakurikulerController::class, 'indexekskul']);
+                Route::post('/ekskul/create/', [AdminEkstrakurikulerController::class, 'storeekskul']);
+                Route::get('/ekskul/destroy/{id}', [AdminEkstrakurikulerController::class, 'destroyekskul']);
+                Route::get('/ekskul/edit/{id}', [AdminEkstrakurikulerController::class, 'editekskul']);
+                Route::post('/ekskul/update/{id}', [AdminEkstrakurikulerController::class, 'updateekskul']);
+
+                //Berita
+                Route::get('/berita', [AdminBeritaController::class, 'index']);
+                Route::post('/berita/create/', [AdminBeritaController::class, 'store']);
+                Route::get('/berita/destroy/{id}', [AdminBeritaController::class, 'destroy']);
+                Route::get('/berita/edit/{id}', [AdminBeritaController::class, 'edit']);
+                Route::post('/berita/update/{id}', [AdminBeritaController::class, 'update']);
+
+                //Bertia Kategori
+                Route::post('/berita/create/kategori', [AdminBeritaController::class, 'storekategori']);
+                Route::get('/berita/destroy/kategori/{id}', [AdminBeritaController::class, 'destroykategori']);
+                Route::get('/berita/edit/kategori/{id}', [AdminBeritaController::class, 'editkategori']);
+                Route::post('/berita/update/kategori/{id}', [AdminBeritaController::class, 'updatekategori']);
+            });
+
+            //Pendaftaran
+            Route::prefix('pendaftaran')->group(function () {
+
+                //Santri
+                Route::get('/santri', [AdminSantriController::class, 'index']);
+                Route::post('/santri/create/', [AdminSantriController::class, 'store']);
+                Route::get('/santri/destroy/{id}', [AdminSantriController::class, 'destroy']);
+                Route::get('/santri/edit/{id}', [AdminSantriController::class, 'edit']);
+                Route::post('/santri/update/{id}', [AdminSantriController::class, 'update']);
+
+                //Biaya Pendaftaran Santri
+                Route::post('/santri/create/biaya', [AdminSantriController::class, 'storebiaya']);
+                Route::get('/santri/destroy/biaya/{id}', [AdminSantriController::class, 'destroybiaya']);
+                Route::get('/santri/edit/biaya/{id}', [AdminSantriController::class, 'editbiaya']);
+                Route::post('santri/update/biaya/{id}', [AdminSantriController::class, 'updatebiaya']);
+
+                //Mts
+                Route::get('/mts', [AdminMtsController::class, 'index']);
+                Route::post('/mts/create/', [AdminMtsController::class, 'store']);
+                Route::get('/mts/destroy/{id}', [AdminMtsController::class, 'destroy']);
+                Route::get('/mts/edit/{id}', [AdminMtsController::class, 'edit']);
+                Route::post('/mts/update/{id}', [AdminMtsController::class, 'update']);
+
+                //Biaya Pendaftaran Mts
+                Route::post('/mts/create/biaya', [AdminMtsController::class, 'storebiaya']);
+                Route::get('/mts/destroy/biaya/{id}', [AdminMtsController::class, 'destroybiaya']);
+                Route::get('/mts/edit/biaya/{id}', [AdminMtsController::class, 'editbiaya']);
+                Route::post('/mts/update/biaya/{id}', [AdminMtsController::class, 'updatebiaya']);
+
+                //Sma
+                Route::get('/sma', [AdminSmaController::class, 'index']);
+                Route::post('/sma/create/', [AdminSmaController::class, 'store']);
+                Route::get('/sma/destroy/{id}', [AdminSmaController::class, 'destroy']);
+                Route::get('/sma/edit/{id}', [AdminSmaController::class, 'edit']);
+                Route::post('/sma/update/{id}', [AdminSmaController::class, 'update']);
+
+                //Biaya Pendaftaran Sma
+                Route::post('/sma/create/biaya', [AdminSmaController::class, 'storebiaya']);
+                Route::get('/sma/destroy/biaya/{id}', [AdminSmaController::class, 'destroybiaya']);
+                Route::get('/sma/edit/biaya/{id}', [AdminSmaController::class, 'editbiaya']);
+                Route::post('/sma/update/biaya/{id}', [AdminSmaController::class, 'updatebiaya']);
+            });
+
+            //SMA
+            Route::prefix('sma')->group(function () {
+                //Profile SMA
+                Route::get('/', [SmaAdminController::class, 'index']);
+                Route::post('/profile/create/', [SmaAdminController::class, 'store']);
+                Route::get('/profile/destroy/{id}', [SmaAdminController::class, 'destroy']);
+                Route::get('/profile/edit/{id}', [SmaAdminController::class, 'edit']);
+                Route::post('/profile/update/{id}', [SmaAdminController::class, 'update']);
+
+                //Sambutan 
+                Route::post('/sambutan/create/', [SmaAdminController::class, 'storesambutan']);
+                Route::get('/sambutan/destroy/{id}', [SmaAdminController::class, 'destroysambutan']);
+                Route::get('/sambutan/edit/{id}', [SmaAdminController::class, 'editsambutan']);
+                Route::post('/sambutan/update/{id}', [SmaAdminController::class, 'updatesambutan']);
+
+                //Visi Misi 
+                Route::post('/visimisi/create/', [SmaAdminController::class, 'storevisimisi']);
+                Route::get('/visimisi/destroy/{id}', [SmaAdminController::class, 'destroyvisimisi']);
+                Route::get('/visimisi/edit/{id}', [SmaAdminController::class, 'editvisimisi']);
+                Route::post('/visimisi/update/{id}', [SmaAdminController::class, 'updatevisimisi']);
+
+                //Organigram 
+                Route::post('/organigram/create', [SmaAdminController::class, 'storestruktur']);
+                Route::get('/organigram/destroy/{id}', [SmaAdminController::class, 'destroystruktur']);
+                Route::get('/organigram/edit/{id}', [SmaAdminController::class, 'editstruktur']);
+                Route::post('/organigram/update/{id}', [SmaAdminController::class, 'updatestruktur']);
+            });
+
+            Route::prefix('mts')->group(function () {
+                //Profile SMA
+                Route::get('/', [SmaAdminController::class, 'index']);
+                Route::post('/profile/create/', [SmaAdminController::class, 'store']);
+                Route::get('/profile/destroy/{id}', [SmaAdminController::class, 'destroy']);
+                Route::get('/profile/edit/{id}', [SmaAdminController::class, 'edit']);
+                Route::post('/profile/update/{id}', [SmaAdminController::class, 'update']);
+
+                //Sambutan 
+                Route::post('/sambutan/create/', [SmaAdminController::class, 'storesambutan']);
+                Route::get('/sambutan/destroy/{id}', [SmaAdminController::class, 'destroysambutan']);
+                Route::get('/sambutan/edit/{id}', [SmaAdminController::class, 'editsambutan']);
+                Route::post('/sambutan/update/{id}', [SmaAdminController::class, 'updatesambutan']);
+
+                //Visi Misi 
+                Route::post('/visimisi/create/', [SmaAdminController::class, 'storevisimisi']);
+                Route::get('/visimisi/destroy/{id}', [SmaAdminController::class, 'destroyvisimisi']);
+                Route::get('/visimisi/edit/{id}', [SmaAdminController::class, 'editvisimisi']);
+                Route::post('/visimisi/update/{id}', [SmaAdminController::class, 'updatevisimisi']);
+
+                //Organigram 
+                Route::post('/organigram/create', [SmaAdminController::class, 'storestruktur']);
+                Route::get('/organigram/destroy/{id}', [SmaAdminController::class, 'destroystruktur']);
+                Route::get('/organigram/edit/{id}', [SmaAdminController::class, 'editstruktur']);
+                Route::post('/organigram/update/{id}', [SmaAdminController::class, 'updatestruktur']);
+            });
+
+            Route::prefix('ra')->group(function () {
+                //Profile SMA
+                Route::get('/', [SmaAdminController::class, 'index']);
+                Route::post('/profile/create/', [SmaAdminController::class, 'store']);
+                Route::get('/profile/destroy/{id}', [SmaAdminController::class, 'destroy']);
+                Route::get('/profile/edit/{id}', [SmaAdminController::class, 'edit']);
+                Route::post('/profile/update/{id}', [SmaAdminController::class, 'update']);
+
+                //Sambutan 
+                Route::post('/sambutan/create/', [SmaAdminController::class, 'storesambutan']);
+                Route::get('/sambutan/destroy/{id}', [SmaAdminController::class, 'destroysambutan']);
+                Route::get('/sambutan/edit/{id}', [SmaAdminController::class, 'editsambutan']);
+                Route::post('/sambutan/update/{id}', [SmaAdminController::class, 'updatesambutan']);
+
+                //Visi Misi 
+                Route::post('/visimisi/create/', [SmaAdminController::class, 'storevisimisi']);
+                Route::get('/visimisi/destroy/{id}', [SmaAdminController::class, 'destroyvisimisi']);
+                Route::get('/visimisi/edit/{id}', [SmaAdminController::class, 'editvisimisi']);
+                Route::post('/visimisi/update/{id}', [SmaAdminController::class, 'updatevisimisi']);
+
+                //Organigram 
+                Route::post('/organigram/create', [SmaAdminController::class, 'storestruktur']);
+                Route::get('/organigram/destroy/{id}', [SmaAdminController::class, 'destroystruktur']);
+                Route::get('/organigram/edit/{id}', [SmaAdminController::class, 'editstruktur']);
+                Route::post('/organigram/update/{id}', [SmaAdminController::class, 'updatestruktur']);
+            });
+
+            //Contact
+
+            Route::prefix('contact')->group(function () {
+                //Profile SMA
+                Route::get('/', [AdminContactController::class, 'index']);
+                Route::post('/narahubung/create/', [AdminContactController::class, 'store']);
+                Route::get('/narahubung/destroy/{id}', [AdminContactController::class, 'destroy']);
+                Route::get('/narahubung/edit/{id}', [AdminContactController::class, 'edit']);
+                Route::post('/narahubung/update/{id}', [AdminContactController::class, 'update']);
             });
         });
 });

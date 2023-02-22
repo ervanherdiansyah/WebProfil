@@ -15,6 +15,7 @@ class CreateSejarahTable extends Migration
     {
         Schema::create('sejarah', function (Blueprint $table) {
             $table->id();
+            $table->string('gambar');
             $table->string('heading');
             $table->longText('deskripsi');
             $table->timestamps();

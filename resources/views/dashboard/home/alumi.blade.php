@@ -131,7 +131,7 @@
                                         <th>
                                             Quotes
                                         </th>
-                                        <th>
+                                        <th style="width: 15%">
                                             Aksi
                                         </th>
                                     </tr>

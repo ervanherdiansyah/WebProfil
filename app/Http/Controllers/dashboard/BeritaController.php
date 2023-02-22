@@ -22,7 +22,7 @@ class BeritaController extends Controller
     {
         $berita = ModelBerita::get();
         $kategori = ModelBeritaKategori::get();
-        return view('dashboard.home.berita', compact('kategori', 'berita'));
+        return view('dashboard.aksescepat.berita', compact('kategori', 'berita'));
     }
 
     /**
@@ -66,7 +66,7 @@ class BeritaController extends Controller
             'view' => '0',
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
-        return redirect('/admin/berita');
+        return redirect('/admin/aksescepat/berita');
     }
 
     /**
@@ -137,7 +137,7 @@ class BeritaController extends Controller
         }
 
         Alert::success('Data berhasil diubah', 'Berhasil');
-        return redirect('/admin/berita');
+        return redirect('/admin/aksescepat/berita');
     }
 
     /**
@@ -150,7 +150,7 @@ class BeritaController extends Controller
     {
         ModelBerita::find($id)->delete();
         Alert::success('Data berhasil dihapus', 'Berhasil');
-        return redirect('/admin/berita');
+        return redirect('/admin/aksescepat/berita');
     }
 
     //Kategori
@@ -190,7 +190,7 @@ class BeritaController extends Controller
             'slug' => Str::slug($request->nama_kategori),
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
-        return redirect('/admin/berita');
+        return redirect('/admin/aksescepat/berita');
     }
 
     /**
@@ -240,7 +240,7 @@ class BeritaController extends Controller
         ModelBeritaKategori::find($id)->update($data);
 
         Alert::success('Data berhasil diubah', 'Berhasil');
-        return redirect('/admin/berita');
+        return redirect('/admin/aksescepat/berita');
     }
 
     /**
@@ -253,6 +253,6 @@ class BeritaController extends Controller
     {
         ModelBeritaKategori::find($id)->delete();
         Alert::success('Data berhasil dihapus', 'Berhasil');
-        return redirect('/admin/berita');
+        return redirect('/admin/aksescepat/berita');
     }
 }

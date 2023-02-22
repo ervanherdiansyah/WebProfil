@@ -10,6 +10,7 @@ use App\ModelKotak;
 Use Alert;
 use App\ModelBackground;
 use App\ModelLogo;
+use App\ModelProgramUnggulan;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
@@ -27,7 +28,8 @@ class DashboardController extends Controller
         $kotak = ModelKotak::get();
         $background = ModelBackground::get();
         $logo = ModelLogo::get();
-        return view('dashboard.home.dashboard',compact('home','header','kotak','background','logo'));
+        $program = ModelProgramUnggulan::get();
+        return view('dashboard.home.dashboard',compact('home','header','kotak','background','logo','program'));
     }
 
     /**
@@ -550,6 +552,108 @@ class DashboardController extends Controller
     public function destroylogo($id)
     {
         ModelLogo::find($id)->delete();
+        Alert::success('Data berhasil dihapus', 'Berhasil');
+        return redirect('/admin/dashboard');
+    }
+
+    //BackEnd Program
+
+    public function indexprogram()
+    {
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createprogram()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeprogram(Request $request)
+    {
+        Request()->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+        ], [
+            'judul.required' => 'Wajib diisi!!!',
+            'deskripsi.required' => 'Wajib diisi!!!',
+        ]);
+
+        ModelProgramUnggulan::create([
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+        ]);
+        Alert::success('Data berhasil ditambahkan', 'Success Message');
+        return redirect("/admin/dashboard");
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showprogram($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editprogram($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateprogram(Request $request, $id)
+    {
+        Request()->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+        ], [
+            'judul.required' => 'Wajib diisi!!!',
+            'deskripsi.required' => 'Wajib diisi!!!',
+        ]);
+
+        $data = [
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+        ];
+        ModelProgramUnggulan::find($id)->update($data);
+        
+        Alert::success('Data berhasil diubah', 'Berhasil');
+        return redirect("/admin/dashboard");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyprogram($id)
+    {
+        ModelProgramUnggulan::find($id)->delete();
         Alert::success('Data berhasil dihapus', 'Berhasil');
         return redirect('/admin/dashboard');
     }

@@ -5,8 +5,9 @@ namespace App\Http\Controllers\dashboard\tentang\selayangpandang;
 use App\Http\Controllers\Controller;
 use App\ModelSambutan;
 use Illuminate\Http\Request;
-Use Alert;
+use Alert;
 use App\ModelBackground;
+use App\ModelBiografiPimpinan;
 use App\ModelSejarah;
 use App\ModelVisiMisi;
 use Illuminate\Support\Facades\Storage;
@@ -23,7 +24,8 @@ class AdminSelayangPandangController extends Controller
         $sambutan = ModelSambutan::get();
         $sejarah = ModelSejarah::get();
         $visimisi = ModelVisiMisi::get();
-        return view('dashboard.tentangisteq.selayangpandang.selayangpandang',compact('sambutan','sejarah','visimisi'));
+        $biografi = ModelBiografiPimpinan::get();
+        return view('dashboard.tentangisteq.selayangpandang.selayangpandang', compact('sambutan', 'sejarah', 'visimisi','biografi'));
     }
 
     /**
@@ -44,37 +46,43 @@ class AdminSelayangPandangController extends Controller
      */
     public function storesambutan(Request $request)
     {
-        Request()->validate([
-            'gambar' => 'required',
-            'nama' => 'required',
-            'sambutan' => 'required',
-        ], [
-            'gambar.required' => 'Wajib diisi!!!',
-            'nama.required' => 'Wajib diisi!!!',
-            'sambutan.required' => 'Wajib diisi!!!',
-        ]);
+        Request()->validate(
+            [
+                'gambar' => 'required',
+                'nama' => 'required',
+                'sambutan' => 'required',
+            ],
+            [
+                'gambar.required' => 'Wajib diisi!!!',
+                'nama.required' => 'Wajib diisi!!!',
+                'sambutan.required' => 'Wajib diisi!!!',
+            ],
+        );
 
         $file_name = $request->gambar->getClientOriginalName();
         $image = $request->gambar->storeAs('public/gambar', $file_name);
-            // $image = $request->poto->store('thumbnail');
+        // $image = $request->poto->store('thumbnail');
         ModelSambutan::create([
-            'gambar' => "gambar/".$file_name,
+            'gambar' => 'gambar/' . $file_name,
             'nama' => $request->nama,
             'sambutan' => $request->sambutan,
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
-        return redirect("/admin/tentang/selayangpandang");
+        return redirect('/admin/tentang/selayangpandang');
     }
 
     public function updatesambutan(Request $request, $id)
     {
-        Request()->validate([
-            'nama' => 'required',
-            'sambutan' => 'required',
-        ], [
-            'nama.required' => 'Wajib diisi!!!',
-            'sambutan.required' => 'Wajib diisi!!!',
-        ]);
+        Request()->validate(
+            [
+                'nama' => 'required',
+                'sambutan' => 'required',
+            ],
+            [
+                'nama.required' => 'Wajib diisi!!!',
+                'sambutan.required' => 'Wajib diisi!!!',
+            ],
+        );
 
         $home = ModelSambutan::find($id);
         if (Request()->hasFile('gambar')) {
@@ -83,9 +91,9 @@ class AdminSelayangPandangController extends Controller
             }
             $file_name = $request->gambar->getClientOriginalName();
             $image = $request->gambar->storeAs('public/gambar', $file_name);
-                // $image = $request->poto->store('thumbnail');
+            // $image = $request->poto->store('thumbnail');
             $home->update([
-                'gambar' => "gambar/".$file_name,
+                'gambar' => 'gambar/' . $file_name,
                 'nama' => $request->nama,
                 'sambutan' => $request->sambutan,
             ]);
@@ -95,9 +103,9 @@ class AdminSelayangPandangController extends Controller
                 'sambutan' => $request->sambutan,
             ]);
         }
-        
+
         Alert::success('Data berhasil diubah', 'Berhasil');
-        return redirect("/admin/tentang/selayangpandang");
+        return redirect('/admin/tentang/selayangpandang');
     }
 
     /**
@@ -117,39 +125,69 @@ class AdminSelayangPandangController extends Controller
 
     public function storesejarah(Request $request)
     {
-        Request()->validate([
-            'heading' => 'required',
-            'deskripsi' => 'required',
-        ], [
-            'heading.required' => 'Wajib diisi!!!',
-            'deskripsi.required' => 'Wajib diisi!!!',
-        ]);
+        Request()->validate(
+            [
+                'heading' => 'required',
+                'deskripsi' => 'required',
+            ],
+            [
+                'heading.required' => 'Wajib diisi!!!',
+                'deskripsi.required' => 'Wajib diisi!!!',
+            ],
+        );
+
+        $file_name = $request->gambar->getClientOriginalName();
+        $image = $request->gambar->storeAs('public/gambar', $file_name);
+        // $image = $request->poto->store('thumbnail');
         ModelSejarah::create([
+            'gambar' => 'gambar/' . $file_name,
             'heading' => $request->heading,
             'deskripsi' => $request->deskripsi,
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
-        return redirect("/admin/tentang/selayangpandang");
+        return redirect('/admin/tentang/selayangpandang');
     }
 
     public function updatesejarah(Request $request, $id)
     {
-        Request()->validate([
-            'heading' => 'required',
-            'deskripsi' => 'required',
-        ], [
-            'heading.required' => 'Wajib diisi!!!',
-            'deskripsi.required' => 'Wajib diisi!!!',
-        ]);
-        
+        Request()->validate(
+            [
+                'heading' => 'required',
+                'deskripsi' => 'required',
+            ],
+            [
+                'heading.required' => 'Wajib diisi!!!',
+                'deskripsi.required' => 'Wajib diisi!!!',
+            ],
+        );
+
         $data = [
             'heading' => $request->heading,
             'deskripsi' => $request->deskripsi,
         ];
-        ModelSejarah::find($id)->update($data);
-        
+
+        $sejarah = ModelSejarah::find($id);
+        if (Request()->hasFile('gambar')) {
+            if (Storage::exists($sejarah->gambar)) {
+                Storage::delete($sejarah->gambar);
+            }
+            $file_name = $request->gambar->getClientOriginalName();
+            $image = $request->gambar->storeAs('public/gambar', $file_name);
+            // $image = $request->poto->store('thumbnail');
+            $sejarah->update([
+                'gambar' => 'gambar/' . $file_name,
+                'heading' => $request->heading,
+                'deskripsi' => $request->deskripsi,
+            ]);
+        } else {
+            $sejarah->update([
+                'heading' => $request->heading,
+                'deskripsi' => $request->deskripsi,
+            ]);
+        }
+
         Alert::success('Data berhasil diubah', 'Berhasil');
-        return redirect("/admin/tentang/selayangpandang");
+        return redirect('/admin/tentang/selayangpandang');
     }
 
     /**
@@ -169,41 +207,47 @@ class AdminSelayangPandangController extends Controller
 
     public function storevisimisi(Request $request)
     {
-        Request()->validate([
-            'visi' => 'required',
-            'misi' => 'required',
-        ], [
-            'visi.required' => 'Wajib diisi!!!',
-            'misi.required' => 'Wajib diisi!!!',
-        ]);
+        Request()->validate(
+            [
+                'visi' => 'required',
+                'misi' => 'required',
+            ],
+            [
+                'visi.required' => 'Wajib diisi!!!',
+                'misi.required' => 'Wajib diisi!!!',
+            ],
+        );
         ModelVisiMisi::create([
             'visi' => $request->visi,
             'misi' => $request->misi,
             'tujuan' => $request->tujuan,
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
-        return redirect("/admin/tentang/selayangpandang");
+        return redirect('/admin/tentang/selayangpandang');
     }
 
     public function updatevisimisi(Request $request, $id)
     {
-        Request()->validate([
-            'visi' => 'required',
-            'misi' => 'required',
-        ], [
-            'visi.required' => 'Wajib diisi!!!',
-            'misi.required' => 'Wajib diisi!!!',
-        ]);
-        
+        Request()->validate(
+            [
+                'visi' => 'required',
+                'misi' => 'required',
+            ],
+            [
+                'visi.required' => 'Wajib diisi!!!',
+                'misi.required' => 'Wajib diisi!!!',
+            ],
+        );
+
         $data = [
             'visi' => $request->visi,
             'misi' => $request->misi,
             'tujuan' => $request->tujuan,
         ];
         ModelVisiMisi::find($id)->update($data);
-        
+
         Alert::success('Data berhasil diubah', 'Berhasil');
-        return redirect("/admin/tentang/selayangpandang");
+        return redirect('/admin/tentang/selayangpandang');
     }
 
     /**
@@ -219,4 +263,85 @@ class AdminSelayangPandangController extends Controller
         return redirect('/admin/tentang/selayangpandang');
     }
 
+    // Biografi Pimpinan
+
+    public function storebiografi(Request $request)
+    {
+        Request()->validate(
+            [
+                'nama' => 'required',
+                'deskripsi' => 'required',
+            ],
+            [
+                'nama.required' => 'Wajib diisi!!!',
+                'deskripsi.required' => 'Wajib diisi!!!',
+            ],
+        );
+
+        $file_name = $request->gambar->getClientOriginalName();
+        $image = $request->gambar->storeAs('public/gambar', $file_name);
+        // $image = $request->poto->store('thumbnail');
+        ModelBiografiPimpinan::create([
+            'gambar' => 'gambar/' . $file_name,
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
+        ]);
+        Alert::success('Data berhasil ditambahkan', 'Success Message');
+        return redirect('/admin/tentang/selayangpandang');
+    }
+
+    public function updatebiografi(Request $request, $id)
+    {
+        Request()->validate(
+            [
+                'nama' => 'required',
+                'deskripsi' => 'required',
+            ],
+            [
+                'nama.required' => 'Wajib diisi!!!',
+                'deskripsi.required' => 'Wajib diisi!!!',
+            ],
+        );
+
+        $data = [
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
+        ];
+
+        $biografi = ModelBiografiPimpinan::find($id);
+        if (Request()->hasFile('gambar')) {
+            if (Storage::exists($biografi->gambar)) {
+                Storage::delete($biografi->gambar);
+            }
+            $file_name = $request->gambar->getClientOriginalName();
+            $image = $request->gambar->storeAs('public/gambar', $file_name);
+            // $image = $request->poto->store('thumbnail');
+            $biografi->update([
+                'gambar' => 'gambar/' . $file_name,
+                'nama' => $request->nama,
+                'deskripsi' => $request->deskripsi,
+            ]);
+        } else {
+            $biografi->update([
+                'nama' => $request->nama,
+                'deskripsi' => $request->deskripsi,
+            ]);
+        }
+
+        Alert::success('Data berhasil diubah', 'Berhasil');
+        return redirect('/admin/tentang/selayangpandang');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroybiografi($id)
+    {
+        ModelBiografiPimpinan::find($id)->delete();
+        Alert::success('Data berhasil dihapus', 'Berhasil');
+        return redirect('/admin/tentang/selayangpandang');
+    }
 }
