@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 Use Alert;
 use App\ModelAdminContact;
+use App\ModelFAQ;
 use Illuminate\Support\Facades\Storage;
 
 class AdminContactController extends Controller
@@ -13,7 +14,8 @@ class AdminContactController extends Controller
     public function index()
     {
         $contact = ModelAdminContact::get();
-        return view('dashboard.contact.contact',compact('contact'));
+        $faq = ModelFAQ::get();
+        return view('dashboard.contact.contact',compact('contact','faq'));
     }
 
     /**
@@ -78,6 +80,58 @@ class AdminContactController extends Controller
     public function destroy($id)
     {
         ModelAdminContact::find($id)->delete();
+        Alert::success('Data berhasil dihapus', 'Berhasil');
+        return redirect('/admin/contact');
+    }
+
+    //FAQ
+
+    public function storefaq(Request $request)
+    {
+        Request()->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+        ], [
+            'judul.required' => 'Wajib diisi!!!',
+            'deskripsi.required' => 'Wajib diisi!!!',
+        ]);
+
+        ModelFAQ::create([
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+        ]);
+        Alert::success('Data berhasil ditambahkan', 'Success Message');
+        return redirect("/admin/contact");
+    }
+    public function updatefaq(Request $request, $id)
+    {
+        Request()->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+        ], [
+            'judul.required' => 'Wajib diisi!!!',
+            'deskripsi.required' => 'Wajib diisi!!!',
+        ]);
+
+        $data = [
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+        ];
+        ModelFAQ::find($id)->update($data);
+        
+        Alert::success('Data berhasil diubah', 'Berhasil');
+        return redirect("/admin/contact");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyfaq($id)
+    {
+        ModelFAQ::find($id)->delete();
         Alert::success('Data berhasil dihapus', 'Berhasil');
         return redirect('/admin/contact');
     }

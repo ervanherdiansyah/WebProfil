@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatBeritaTable extends Migration
+class CreateFaqTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,12 @@ class CreatBeritaTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('faq', function (Blueprint $table) {
+            $table->id();
+            $table->string('judul');
+            $table->longText('deskripsi');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class CreatBeritaTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('faq');
     }
 }

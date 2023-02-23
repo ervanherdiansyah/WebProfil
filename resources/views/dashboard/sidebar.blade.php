@@ -54,7 +54,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ url('admin/tentang/selayangpandang') }}"
-                            class="nav-link {{ request()->is('admin/tentang/selayangpandang','admin/tentang/organisasi') ? 'active' : '' }}">
+                            class="nav-link {{ request()->is('admin/tentang/selayangpandang','admin/tentang/organisasi','admin/tentang/divisi') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-address-card"></i>
                             <p>
                                 Tentang Isteq
@@ -74,6 +74,13 @@
                                     class="nav-link {{ request()->is('admin/tentang/organisasi') ? 'active' : '' }}">
                                     <i class="fas fa-newspaper nav-icon"></i>
                                     <p>Organisasi dan Tata Kerja</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/admin/tentang/divisi') }}"
+                                    class="nav-link {{ request()->is('admin/tentang/divisi') ? 'active' : '' }}">
+                                    <i class="fas fa-newspaper nav-icon"></i>
+                                    <p>Divisi</p>
                                 </a>
                             </li>
                         </ul>

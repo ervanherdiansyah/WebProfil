@@ -16,6 +16,7 @@ use App\Http\Controllers\dashboard\PengaturanController;
 use App\Http\Controllers\dashboard\PesertaDidikController;
 use App\Http\Controllers\dashboard\sma\SmaAdminController;
 use App\Http\Controllers\dashboard\sma\SmaController as SmaSmaController;
+use App\Http\Controllers\dashboard\tentang\divisi\AdminDivisiController;
 use App\Http\Controllers\dashboard\tentang\organisasi\AdminOrganisasiController;
 use App\Http\Controllers\dashboard\tentang\selayangpandang\AdminSelayangPandangController;
 use App\Http\Controllers\login\AuthController;
@@ -280,11 +281,20 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/organisasi/edit/struktur/{id}', [AdminOrganisasiController::class, 'editstruktur']);
                 Route::post('/organisasi/update/struktur/{id}', [AdminOrganisasiController::class, 'updatestruktur']);
 
-                Route::prefix('divisi')->group(function () {
-                    Route::get('/', [HomeController::class, 'showDivisi']);
-                    Route::get('/media', [DivisiMediaController::class, 'index']);
-                    Route::get('/it', [DivisiITController::class, 'index']);
-                });
+                //Divisi
+                Route::get('/divisi', [AdminDivisiController::class, 'index']);
+                Route::post('/divisi/create/', [AdminDivisiController::class, 'storedivisi']);
+                Route::get('/divisi/destroy/{id}', [AdminDivisiController::class, 'destroydivisi']);
+                Route::get('/divisi/edit/{id}', [AdminDivisiController::class, 'editdivisi']);
+                Route::post('/divisi/update/{id}', [AdminDivisiController::class, 'updatedivisi']);
+
+                //Team
+                Route::post('/divisi/create/team', [AdminDivisiController::class, 'storeteam']);
+                Route::get('/divisi/destroy/team/{id}', [AdminDivisiController::class, 'destroyteam']);
+                Route::get('/divisi/edit/team/{id}', [AdminDivisiController::class, 'editteam']);
+                Route::post('/divisi/update/team/{id}', [AdminDivisiController::class, 'updateteam']);
+
+
             });
 
             //Akses Cepat
@@ -315,7 +325,6 @@ Route::group(['middleware' => 'auth'], function () {
 
             //Pendaftaran
             Route::prefix('pendaftaran')->group(function () {
-
                 //Santri
                 Route::get('/santri', [AdminSantriController::class, 'index']);
                 Route::post('/santri/create/', [AdminSantriController::class, 'store']);
@@ -365,19 +374,19 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/profile/edit/{id}', [SmaAdminController::class, 'edit']);
                 Route::post('/profile/update/{id}', [SmaAdminController::class, 'update']);
 
-                //Sambutan 
+                //Sambutan
                 Route::post('/sambutan/create/', [SmaAdminController::class, 'storesambutan']);
                 Route::get('/sambutan/destroy/{id}', [SmaAdminController::class, 'destroysambutan']);
                 Route::get('/sambutan/edit/{id}', [SmaAdminController::class, 'editsambutan']);
                 Route::post('/sambutan/update/{id}', [SmaAdminController::class, 'updatesambutan']);
 
-                //Visi Misi 
+                //Visi Misi
                 Route::post('/visimisi/create/', [SmaAdminController::class, 'storevisimisi']);
                 Route::get('/visimisi/destroy/{id}', [SmaAdminController::class, 'destroyvisimisi']);
                 Route::get('/visimisi/edit/{id}', [SmaAdminController::class, 'editvisimisi']);
                 Route::post('/visimisi/update/{id}', [SmaAdminController::class, 'updatevisimisi']);
 
-                //Organigram 
+                //Organigram
                 Route::post('/organigram/create', [SmaAdminController::class, 'storestruktur']);
                 Route::get('/organigram/destroy/{id}', [SmaAdminController::class, 'destroystruktur']);
                 Route::get('/organigram/edit/{id}', [SmaAdminController::class, 'editstruktur']);
@@ -392,19 +401,19 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/profile/edit/{id}', [SmaAdminController::class, 'edit']);
                 Route::post('/profile/update/{id}', [SmaAdminController::class, 'update']);
 
-                //Sambutan 
+                //Sambutan
                 Route::post('/sambutan/create/', [SmaAdminController::class, 'storesambutan']);
                 Route::get('/sambutan/destroy/{id}', [SmaAdminController::class, 'destroysambutan']);
                 Route::get('/sambutan/edit/{id}', [SmaAdminController::class, 'editsambutan']);
                 Route::post('/sambutan/update/{id}', [SmaAdminController::class, 'updatesambutan']);
 
-                //Visi Misi 
+                //Visi Misi
                 Route::post('/visimisi/create/', [SmaAdminController::class, 'storevisimisi']);
                 Route::get('/visimisi/destroy/{id}', [SmaAdminController::class, 'destroyvisimisi']);
                 Route::get('/visimisi/edit/{id}', [SmaAdminController::class, 'editvisimisi']);
                 Route::post('/visimisi/update/{id}', [SmaAdminController::class, 'updatevisimisi']);
 
-                //Organigram 
+                //Organigram
                 Route::post('/organigram/create', [SmaAdminController::class, 'storestruktur']);
                 Route::get('/organigram/destroy/{id}', [SmaAdminController::class, 'destroystruktur']);
                 Route::get('/organigram/edit/{id}', [SmaAdminController::class, 'editstruktur']);
@@ -419,19 +428,19 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/profile/edit/{id}', [SmaAdminController::class, 'edit']);
                 Route::post('/profile/update/{id}', [SmaAdminController::class, 'update']);
 
-                //Sambutan 
+                //Sambutan
                 Route::post('/sambutan/create/', [SmaAdminController::class, 'storesambutan']);
                 Route::get('/sambutan/destroy/{id}', [SmaAdminController::class, 'destroysambutan']);
                 Route::get('/sambutan/edit/{id}', [SmaAdminController::class, 'editsambutan']);
                 Route::post('/sambutan/update/{id}', [SmaAdminController::class, 'updatesambutan']);
 
-                //Visi Misi 
+                //Visi Misi
                 Route::post('/visimisi/create/', [SmaAdminController::class, 'storevisimisi']);
                 Route::get('/visimisi/destroy/{id}', [SmaAdminController::class, 'destroyvisimisi']);
                 Route::get('/visimisi/edit/{id}', [SmaAdminController::class, 'editvisimisi']);
                 Route::post('/visimisi/update/{id}', [SmaAdminController::class, 'updatevisimisi']);
 
-                //Organigram 
+                //Organigram
                 Route::post('/organigram/create', [SmaAdminController::class, 'storestruktur']);
                 Route::get('/organigram/destroy/{id}', [SmaAdminController::class, 'destroystruktur']);
                 Route::get('/organigram/edit/{id}', [SmaAdminController::class, 'editstruktur']);
@@ -447,6 +456,12 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/narahubung/destroy/{id}', [AdminContactController::class, 'destroy']);
                 Route::get('/narahubung/edit/{id}', [AdminContactController::class, 'edit']);
                 Route::post('/narahubung/update/{id}', [AdminContactController::class, 'update']);
+
+                //FAQ
+                Route::post('/faq/create/', [AdminContactController::class, 'storefaq']);
+                Route::get('/faq/destroy/{id}', [AdminContactController::class, 'destroyfaq']);
+                Route::get('/faq/edit/{id}', [AdminContactController::class, 'editfaq']);
+                Route::post('/faq/update/{id}', [AdminContactController::class, 'updatefaq']);
             });
         });
 });
