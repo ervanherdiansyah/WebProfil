@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\tentang\SelayangPandang;
 
 use App\Http\Controllers\Controller;
+use App\ModelSambutan;
 use Illuminate\Http\Request;
 
 class SambutanController extends Controller
@@ -14,7 +15,8 @@ class SambutanController extends Controller
      */
     public function index()
     {
-        return view('home.tentang.selayangpandang.sambutan');
+        $sambutan = ModelSambutan::first();
+        return view('home.tentang.selayangpandang.sambutan', compact('sambutan'));
     }
 
     /**

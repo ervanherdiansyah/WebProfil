@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\landing\pendaftaran;
 
 use App\Http\Controllers\Controller;
+use App\ModelBiayaPendaftaranMts;
+use App\ModelPendaftaranMts;
 use Illuminate\Http\Request;
 
 class DaftarMTsController extends Controller
@@ -14,7 +16,10 @@ class DaftarMTsController extends Controller
      */
     public function index()
     {
-        return view('home.pendaftaran.mts');
+        $pendaftaran = ModelPendaftaranMts::first();
+        $biaya = ModelBiayaPendaftaranMts::get();
+        $total = $biaya->sum('harga');
+        return view('home.pendaftaran.mts', compact('pendaftaran','biaya','total'));
     }
 
     /**

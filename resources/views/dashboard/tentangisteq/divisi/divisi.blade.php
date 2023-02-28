@@ -293,6 +293,17 @@
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>
+                                            <div class="form-group">
+                                                <label>Status</label>
+                                                <select name="status" id="" class="form-control">
+                                                    <option disabled selected value="">Pilih Status</option>
+                                                    <option value="leader">Leader</option>
+                                                    <option value="member">Member</option>
+                                                </select>
+                                                @error('status')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary btn-sm"
                                                     data-dismiss="modal">Tutup</button>
@@ -418,6 +429,21 @@
                                                                             name="jabatan" placeholder="Enter..."
                                                                             value="{{ $data->jabatan }}">
                                                                         @error('jabatan')
+                                                                            <div class="invalid-feedback">{{ $message }}
+                                                                            </div>
+                                                                        @enderror
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Status</label>
+                                                                        <select name="status" id=""
+                                                                            class="form-control">
+                                                                            <option value="{{ $data->status }}">
+                                                                                {{ $data->status }}
+                                                                            </option>
+                                                                            <option value="leader">Leader</option>
+                                                                            <option value="member">Member</option>
+                                                                        </select>
+                                                                        @error('status')
                                                                             <div class="invalid-feedback">{{ $message }}
                                                                             </div>
                                                                         @enderror

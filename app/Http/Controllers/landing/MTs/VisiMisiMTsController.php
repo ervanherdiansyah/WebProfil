@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\MTs;
 
 use App\Http\Controllers\Controller;
+use App\ModelVisiMisiMtTs;
 use Illuminate\Http\Request;
 
 class VisiMisiMTsController extends Controller
@@ -14,7 +15,8 @@ class VisiMisiMTsController extends Controller
      */
     public function index()
     {
-        return view('home.mts.visimisi');
+        $visimisi = ModelVisiMisiMtTs::first();
+        return view('home.mts.visimisi', compact('visimisi'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\RA;
 
 use App\Http\Controllers\Controller;
+use App\ModelAdminRA;
 use Illuminate\Http\Request;
 
 class RAController extends Controller
@@ -14,7 +15,8 @@ class RAController extends Controller
      */
     public function index()
     {
-        return view('home.ra.index');
+        $ra = ModelAdminRA::first();
+        return view('home.ra.index', compact('ra'));
     }
 
     /**

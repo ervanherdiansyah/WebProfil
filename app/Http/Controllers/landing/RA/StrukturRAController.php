@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\RA;
 
 use App\Http\Controllers\Controller;
+use App\ModelStrukturRA;
 use Illuminate\Http\Request;
 
 class StrukturRAController extends Controller
@@ -14,7 +15,8 @@ class StrukturRAController extends Controller
      */
     public function index()
     {
-        return view('home.ra.struktur');
+        $struktur = ModelStrukturRA::first();
+        return view('home.ra.struktur', compact('struktur'));
     }
 
     /**

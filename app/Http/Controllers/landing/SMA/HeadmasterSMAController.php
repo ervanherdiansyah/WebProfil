@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\SMA;
 
 use App\Http\Controllers\Controller;
+use App\ModelSambutanSma;
 use Illuminate\Http\Request;
 
 class HeadmasterSMAController extends Controller
@@ -14,7 +15,8 @@ class HeadmasterSMAController extends Controller
      */
     public function index()
     {
-        return view('home.sma.headmaster');
+        $sambutan = ModelSambutanSma::first();
+        return view('home.sma.headmaster', compact('sambutan'));
     }
 
     /**

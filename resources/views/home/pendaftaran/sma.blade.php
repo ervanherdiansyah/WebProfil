@@ -39,13 +39,13 @@
                 <i class="bi bi-cash-coin"></i>
               </div>
 
-              <h4><sup>Rp</sup>2.010.000</h4>
+              <h4><sup>Rp</sup>{{ $total }}</h4>
               <ul>
-                <li><i class="bi bi-check"></i> Pendaftaran : <sup>Rp</sup>400.000</li>
-                <li><i class="bi bi-check"></i> Kitab Amtsilati : <sup>Rp</sup>150.000</li>
-                <li><i class="bi bi-check"></i> Infaq Bangunan : <sup>Rp</sup>500.000</li>
-                <li><i class="bi bi-check"></i> Bulanan : <sup>Rp</sup>460.000<sub> / bulan</sub></li>
-                <li><i class="bi bi-check"></i> Lemari : <sup>Rp</sup>500.000 (Hak Milik)</li>
+                @foreach ($biaya as $data)
+                    <li><i class="bi bi-check"></i> {{$data->nama}} : <sup>Rp</sup>{{$data->harga}}</li>
+                @endforeach
+                {{-- <li><i class="bi bi-check"></i> Bulanan : <sup>Rp</sup>460.000<sub> / bulan</sub></li>
+                <li><i class="bi bi-check"></i> Lemari : <sup>Rp</sup>500.000 (Hak Milik)</li> --}}
               </ul>
               <div class="text-center"><a href="#" class="buy-btn">Daftar</a></div>
             </div>

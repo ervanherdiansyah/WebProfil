@@ -99,6 +99,7 @@ class AdminDivisiController extends Controller
             'gambar' => 'gambar/' . $file_name,
             'nama' => $request->nama,
             'jabatan' => $request->jabatan,
+            'status' => $request->status,
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
         return redirect('/admin/tentang/divisi');
@@ -128,12 +129,14 @@ class AdminDivisiController extends Controller
                 'gambar' => 'gambar/' . $file_name,
                 'nama' => $request->nama,
                 'jabatan' => $request->jabatan,
+                'status' => $request->status,
             ]);
         } else {
             $team->update([
                 'divisi_id' => $request->divisi_id,
                 'nama' => $request->nama,
                 'jabatan' => $request->jabatan,
+                'status' => $request->status,
             ]);
         }
 

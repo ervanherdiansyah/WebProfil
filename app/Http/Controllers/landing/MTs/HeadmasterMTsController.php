@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\MTs;
 
 use App\Http\Controllers\Controller;
+use App\ModelSambutanMtTs;
 use Illuminate\Http\Request;
 
 class HeadmasterMTsController extends Controller
@@ -14,7 +15,8 @@ class HeadmasterMTsController extends Controller
      */
     public function index()
     {
-        return view('home.mts.headmaster');
+        $sambutan = ModelSambutanMtTs::first();
+        return view('home.mts.headmaster', compact('sambutan'));
     }
 
     /**

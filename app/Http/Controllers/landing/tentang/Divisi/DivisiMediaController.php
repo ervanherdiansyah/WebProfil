@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\landing\tentang\Divisi;
 
 use App\Http\Controllers\Controller;
+use App\ModelDivisi;
+use App\ModelTeam;
 use Illuminate\Http\Request;
 
 class DivisiMediaController extends Controller
@@ -12,9 +14,11 @@ class DivisiMediaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('home.tentang.divisi.media');
+        $divisi = ModelDivisi::first();
+        $team = ModelTeam::with('divisi')->where('divisi_id', $id)->get();
+        return view('home.tentang.divisi.media',compact('divisi','team'));
     }
 
     /**
@@ -46,7 +50,7 @@ class DivisiMediaController extends Controller
      */
     public function show($id)
     {
-        //
+    
     }
 
     /**

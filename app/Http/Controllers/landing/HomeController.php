@@ -12,12 +12,14 @@ use App\User;
 use App\ModelBerita;
 use App\ModelBeritaKategori;
 use App\ModelBackground;
+use App\ModelDivisi;
 use App\ModelLogo;
 use App\ModelPDMts;
 use App\ModelPDPesantren;
 use App\ModelPDSma;
+use App\ModelProgramUnggulan;
 use App\ModelSambutan;
-
+use App\ModelTeam;
 
 class HomeController extends Controller
 {
@@ -40,7 +42,8 @@ class HomeController extends Controller
         $pdpesantren = ModelPDPesantren::select('pdlaki','pdperempuan')->selectRaw('(pdlaki + pdperempuan) as total')->first();
         $alumi = ModelAlumi::get();
         $logo = ModelLogo::get();
-        return view('home.index',compact('home','header','kotak','berita','kategori','background','sambutan','pdmts','pdsma','pdpesantren','alumi','logo'));
+        $program = ModelProgramUnggulan::get();
+        return view('home.index',compact('home','program','header','kotak','berita','kategori','background','sambutan','pdmts','pdsma','pdpesantren','alumi','logo'));
     }
 
     public function showMaintenance()
@@ -95,7 +98,8 @@ class HomeController extends Controller
 
     public function showDivisi()
     {
-        return view('home.tentang.divisi.index');
+        $divisi = ModelDivisi::get();
+        return view('home.tentang.divisi.index', compact('divisi'));
     }
 
     /**

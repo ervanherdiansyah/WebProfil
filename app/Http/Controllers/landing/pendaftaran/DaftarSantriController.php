@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\landing\pendaftaran;
 
 use App\Http\Controllers\Controller;
+use App\ModelBiayaPendaftaranSantri;
+use App\ModelPendaftaranSantri;
 use Illuminate\Http\Request;
 
 class DaftarSantriController extends Controller
@@ -14,7 +16,10 @@ class DaftarSantriController extends Controller
      */
     public function index()
     {
-        return view('home.pendaftaran.santri');
+        $pendaftaran = ModelPendaftaranSantri::first();
+        $biaya = ModelBiayaPendaftaranSantri::get();
+        $total = $biaya->sum('harga');
+        return view('home.pendaftaran.santri', compact('pendaftaran','biaya','total'));
     }
 
     /**

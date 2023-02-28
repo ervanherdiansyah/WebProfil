@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\landing\berita;
 
 use App\Http\Controllers\Controller;
+use App\ModelBerita;
+use App\ModelBeritaKategori;
 use Illuminate\Http\Request;
 
 class FrontBeritaController extends Controller
@@ -14,12 +16,17 @@ class FrontBeritaController extends Controller
      */
     public function index()
     {
-        return view('home.akses-cepat.berita.index');
+        $berita = ModelBerita::where('is_active', 1)->get();
+        $kategori = ModelBeritaKategori::get();
+        return view('home.akses-cepat.berita.index', compact('berita', 'kategori'));
     }
 
-    public function DetailBerita()
+    public function DetailBerita($id)
     {
-        return view('home.akses-cepat.berita.detail');
+        $berita = ModelBerita::find($id)->first();
+        $recent = ModelBerita::where('is_active', 1)->get();
+        $kategori = ModelBeritaKategori::get();
+        return view('home.akses-cepat.berita.detail', compact('berita','recent','kategori'));
     }
 
     /**

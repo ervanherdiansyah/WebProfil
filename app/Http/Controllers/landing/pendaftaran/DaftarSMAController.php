@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\landing\pendaftaran;
 
 use App\Http\Controllers\Controller;
+use App\ModelBiayaPendaftaranSma;
+use App\ModelPendaftaranSma;
 use Illuminate\Http\Request;
 
 class DaftarSMAController extends Controller
@@ -14,7 +16,10 @@ class DaftarSMAController extends Controller
      */
     public function index()
     {
-        return view('home.pendaftaran.sma');
+        $pendaftaran = ModelPendaftaranSma::first();
+        $biaya = ModelBiayaPendaftaranSma::get();
+        $total = $biaya->sum('harga');
+        return view('home.pendaftaran.sma', compact('pendaftaran','biaya','total'));
     }
 
     /**

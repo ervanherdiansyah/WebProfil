@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\SMA;
 
 use App\Http\Controllers\Controller;
+use App\ModelVisiMisiSma;
 use Illuminate\Http\Request;
 
 class VisiMisiSMAController extends Controller
@@ -14,7 +15,8 @@ class VisiMisiSMAController extends Controller
      */
     public function index()
     {
-        return view('home.sma.visimisi');
+        $visimisi = ModelVisiMisiSma::first();
+        return view('home.sma.visimisi', compact('visimisi'));
     }
 
     /**

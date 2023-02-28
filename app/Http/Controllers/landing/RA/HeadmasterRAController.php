@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\RA;
 
 use App\Http\Controllers\Controller;
+use App\ModelSambutanRA;
 use Illuminate\Http\Request;
 
 class HeadmasterRAController extends Controller
@@ -14,7 +15,8 @@ class HeadmasterRAController extends Controller
      */
     public function index()
     {
-        return view('home.ra.headmaster');
+        $sambutan = ModelSambutanRA::first();
+        return view('home.ra.headmaster', compact('sambutan'));
     }
 
     /**

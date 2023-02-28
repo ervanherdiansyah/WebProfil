@@ -16,8 +16,8 @@
                 <div class="row mb-2">
                     <div class="col-sm-12">
                         <ol class="breadcrumb float-sm-left">
-                            <li class="breadcrumb-item"><a href="{{ url('/admin/ra/') }}">SMA</a></li>
-                            <li class="breadcrumb-item active">SMA</li>
+                            <li class="breadcrumb-item"><a href="{{ url('/admin/ra/') }}">RA</a></li>
+                            <li class="breadcrumb-item active">RA</li>
                         </ol>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
             <div class="container-fluid">
                 <div class="card card-primary">
                     <div class="card-header" style="background-color: #343a40;">
-                        <h3 class="card-title">Profile SMA</h3>
+                        <h3 class="card-title">Profile RA</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                 <i class="fas fa-minus"></i>
@@ -48,7 +48,7 @@
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="tambahLabel">Tambah Profile SMA</h5>
+                                        <h5 class="modal-title" id="tambahLabel">Tambah Profile RA</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -137,7 +137,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sma as $data)
+                                    @foreach ($ra as $data)
                                         <tr style="text-align: justify;">
                                             <td>
                                                 {{ $data->judul }}
@@ -168,7 +168,7 @@
                                                     <div class="modal-dialog modal-dialog-scrollable">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="ubahLabel">Ubah Profile SMA
+                                                                <h5 class="modal-title" id="ubahLabel">Ubah Profile RA
                                                                 </h5>
                                                                 <button type="button" class="close"
                                                                     data-dismiss="modal" aria-label="Close">

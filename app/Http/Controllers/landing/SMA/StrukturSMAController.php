@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\SMA;
 
 use App\Http\Controllers\Controller;
+use App\ModelStrukturSma;
 use Illuminate\Http\Request;
 
 class StrukturSMAController extends Controller
@@ -14,7 +15,8 @@ class StrukturSMAController extends Controller
      */
     public function index()
     {
-        return view('home.sma.struktur');
+        $struktur = ModelStrukturSma::first();
+        return view('home.sma.struktur', compact('struktur'));
     }
 
     /**

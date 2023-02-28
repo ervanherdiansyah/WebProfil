@@ -61,7 +61,7 @@ class RaAdminController extends Controller
             'jabatan' => $request->jabatan,
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
-        return redirect('/admin/sma');
+        return redirect('/admin/ra');
     }
 
     public function update(Request $request, $id)
@@ -75,15 +75,15 @@ class RaAdminController extends Controller
             ],
         );
 
-        $sma = ModelAdminRA::find($id);
+        $ra = ModelAdminRA::find($id);
         if (Request()->hasFile('gambar')) {
-            if (Storage::exists($sma->gambar)) {
-                Storage::delete($sma->gambar);
+            if (Storage::exists($ra->gambar)) {
+                Storage::delete($ra->gambar);
             }
             $file_name = $request->gambar->getClientOriginalName();
             $image = $request->gambar->storeAs('public/gambar', $file_name);
             // $image = $request->poto->store('thumbnail');
-            $sma->update([
+            $ra->update([
                 'judul' => $request->judul,
                 'body' => $request->body,
                 'gambar' => 'gambar/' . $file_name,
@@ -91,7 +91,7 @@ class RaAdminController extends Controller
                 'jabatan' => $request->jabatan,
             ]);
         } else {
-            $sma->update([
+            $ra->update([
                 'judul' => $request->judul,
                 'body' => $request->body,
                 'nama' => $request->nama,
@@ -100,7 +100,7 @@ class RaAdminController extends Controller
         }
 
         Alert::success('Data berhasil diubah', 'Berhasil');
-        return redirect('/admin/sma');
+        return redirect('/admin/ra');
     }
 
     /**
@@ -113,7 +113,7 @@ class RaAdminController extends Controller
     {
         ModelAdminRA::find($id)->delete();
         Alert::success('Data berhasil dihapus', 'Berhasil');
-        return redirect('/admin/sma');
+        return redirect('/admin/ra');
     }
 
     //Sambutan
@@ -142,7 +142,7 @@ class RaAdminController extends Controller
             'sambutan' => $request->sambutan,
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
-        return redirect('/admin/sma');
+        return redirect('/admin/ra');
     }
 
     public function updatesambutan(Request $request, $id)
@@ -179,7 +179,7 @@ class RaAdminController extends Controller
         }
 
         Alert::success('Data berhasil diubah', 'Berhasil');
-        return redirect('/admin/sma');
+        return redirect('/admin/ra');
     }
 
     /**
@@ -192,7 +192,7 @@ class RaAdminController extends Controller
     {
         ModelSambutanRA::find($id)->delete();
         Alert::success('Data berhasil dihapus', 'Berhasil');
-        return redirect('/admin/sma');
+        return redirect('/admin/ra');
     }
 
     // Visi Misi
@@ -215,7 +215,7 @@ class RaAdminController extends Controller
             'tujuan' => $request->tujuan,
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
-        return redirect('/admin/sma');
+        return redirect('/admin/ra');
     }
 
     public function updatevisimisi(Request $request, $id)
@@ -239,7 +239,7 @@ class RaAdminController extends Controller
         ModelVisiMisiRA::find($id)->update($data);
 
         Alert::success('Data berhasil diubah', 'Berhasil');
-        return redirect('/admin/sma');
+        return redirect('/admin/ra');
     }
 
     /**
@@ -252,7 +252,7 @@ class RaAdminController extends Controller
     {
         ModelVisiMisiRA::find($id)->delete();
         Alert::success('Data berhasil dihapus', 'Berhasil');
-        return redirect('/admin/sma');
+        return redirect('/admin/ra');
     }
 
     // Organigram
@@ -275,7 +275,7 @@ class RaAdminController extends Controller
             'tahun_periode' => $request->tahun_periode,
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
-        return redirect("/admin/sma");
+        return redirect("/admin/ra");
     }
 
     public function updatestruktur(Request $request, $id)
@@ -305,7 +305,7 @@ class RaAdminController extends Controller
         }
         
         Alert::success('Data berhasil diubah', 'Berhasil');
-        return redirect("/admin/sma");
+        return redirect("/admin/ra");
     }
 
     /**
@@ -318,6 +318,6 @@ class RaAdminController extends Controller
     {
         ModelStrukturRA::find($id)->delete();
         Alert::success('Data berhasil dihapus', 'Berhasil');
-        return redirect('/admin/sma');
+        return redirect('/admin/ra');
     }
 }

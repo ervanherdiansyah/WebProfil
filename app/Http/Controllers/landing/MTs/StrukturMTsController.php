@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\MTs;
 
 use App\Http\Controllers\Controller;
+use App\ModelStrukturMtTs;
 use Illuminate\Http\Request;
 
 class StrukturMTsController extends Controller
@@ -14,7 +15,8 @@ class StrukturMTsController extends Controller
      */
     public function index()
     {
-        return view('home.mts.struktur');
+        $struktur = ModelStrukturMtTs::first();
+        return view('home.mts.struktur', compact('struktur'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\tentang\SelayangPandang;
 
 use App\Http\Controllers\Controller;
+use App\ModelVisiMisi;
 use Illuminate\Http\Request;
 
 class VisiYayasanController extends Controller
@@ -14,7 +15,8 @@ class VisiYayasanController extends Controller
      */
     public function index()
     {
-        return view('home.tentang.selayangpandang.visimisi');
+        $visimisi = ModelVisiMisi::first();
+        return view('home.tentang.selayangpandang.visimisi', compact('visimisi'));
     }
 
     /**

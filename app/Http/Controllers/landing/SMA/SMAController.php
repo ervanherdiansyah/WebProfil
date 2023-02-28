@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\SMA;
 
 use App\Http\Controllers\Controller;
+use App\ModelAdminSma;
 use Illuminate\Http\Request;
 
 class SMAController extends Controller
@@ -14,7 +15,8 @@ class SMAController extends Controller
      */
     public function index()
     {
-        return view('home.sma.index');
+        $sma = ModelAdminSma::first();
+        return view('home.sma.index', compact('sma'));
     }
 
     /**

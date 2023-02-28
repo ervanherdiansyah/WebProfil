@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\landing\tentang\SelayangPandang;
 
 use App\Http\Controllers\Controller;
+use App\ModelBerita;
+use App\ModelBeritaKategori;
+use App\ModelSejarah;
 use Illuminate\Http\Request;
 
 class SejarahController extends Controller
@@ -14,7 +17,10 @@ class SejarahController extends Controller
      */
     public function index()
     {
-        return view('home.tentang.selayangpandang.sejarah');
+        $berita = ModelBerita::where('is_active', 1)->get();
+        $kategori = ModelBeritaKategori::get();
+        $sejarah = ModelSejarah::first();
+        return view('home.tentang.selayangpandang.sejarah', compact('sejarah','berita','kategori'));
     }
 
     /**

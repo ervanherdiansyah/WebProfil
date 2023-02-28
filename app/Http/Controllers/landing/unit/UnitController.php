@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\landing\unit;
 
 use App\Http\Controllers\Controller;
+use App\ModelEkstrakurikuler;
+use App\ModelEkstrakurikulermts;
+use App\ModelEkstrakurikulerpondok;
 use Illuminate\Http\Request;
 
 class UnitController extends Controller
@@ -14,12 +17,18 @@ class UnitController extends Controller
      */
     public function index()
     {
-        return view('home.unit.detail');
+        $ekskulsma = ModelEkstrakurikuler::get();
+        $ekskulmts = ModelEkstrakurikulermts::get();
+        $ekskulpondok = ModelEkstrakurikulerpondok::get();
+        return view('home.unit.detail', compact('ekskulsma','ekskulmts','ekskulpondok'));
     }
 
     public function ShowAllUnit()
     {
-        return view('home.unit.index');
+        $ekskulsma = ModelEkstrakurikuler::get();
+        $ekskulmts = ModelEkstrakurikulermts::get();
+        $ekskulpondok = ModelEkstrakurikulerpondok::get();
+        return view('home.unit.index',compact('ekskulsma','ekskulmts','ekskulpondok'));
     }
 
     /**

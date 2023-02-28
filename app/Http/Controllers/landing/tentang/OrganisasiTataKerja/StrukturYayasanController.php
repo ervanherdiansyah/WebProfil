@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\tentang\OrganisasiTataKerja;
 
 use App\Http\Controllers\Controller;
+use App\ModelStruktur;
 use Illuminate\Http\Request;
 
 class StrukturYayasanController extends Controller
@@ -14,7 +15,8 @@ class StrukturYayasanController extends Controller
      */
     public function index()
     {
-        return view('home.tentang.organisasi.struktur');
+        $struktur = ModelStruktur::first();
+        return view('home.tentang.organisasi.struktur', compact('struktur'));
     }
 
     /**

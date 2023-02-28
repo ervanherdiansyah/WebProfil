@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\MTs;
 
 use App\Http\Controllers\Controller;
+use App\ModelAdminMts;
 use Illuminate\Http\Request;
 
 class MTsController extends Controller
@@ -14,7 +15,8 @@ class MTsController extends Controller
      */
     public function index()
     {
-        return view('home.mts.index');
+        $mts = ModelAdminMts::first();
+        return view('home.mts.index', compact('mts'));
     }
 
     /**

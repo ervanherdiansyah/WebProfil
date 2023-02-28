@@ -137,7 +137,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sma as $data)
+                                    @foreach ($mts as $data)
                                         <tr style="text-align: justify;">
                                             <td>
                                                 {{ $data->judul }}

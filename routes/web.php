@@ -8,12 +8,14 @@ use App\Http\Controllers\landing\HomeController;
 use App\Http\Controllers\dashboard\DashboardController;
 use App\Http\Controllers\dashboard\BeritaController;
 use App\Http\Controllers\dashboard\contact\AdminContactController;
+use App\Http\Controllers\dashboard\mts\MtsAdminController;
 use App\Http\Controllers\dashboard\pendaftaran\mts\AdminMtsController;
 use App\Http\Controllers\dashboard\pendaftaran\santri\AdminSantriController;
 use App\Http\Controllers\dashboard\pendaftaran\sma\AdminSmaController;
 use App\Http\Controllers\landing\berita\FrontBeritaController;
 use App\Http\Controllers\dashboard\PengaturanController;
 use App\Http\Controllers\dashboard\PesertaDidikController;
+use App\Http\Controllers\dashboard\ra\RaAdminController;
 use App\Http\Controllers\dashboard\sma\SmaAdminController;
 use App\Http\Controllers\dashboard\sma\SmaController as SmaSmaController;
 use App\Http\Controllers\dashboard\tentang\divisi\AdminDivisiController;
@@ -102,8 +104,7 @@ Route::prefix('tentang')->group(function () {
 
     Route::prefix('divisi')->group(function () {
         Route::get('/', [HomeController::class, 'showDivisi']);
-        Route::get('/media', [DivisiMediaController::class, 'index']);
-        Route::get('/it', [DivisiITController::class, 'index']);
+        Route::get('/{id}', [DivisiMediaController::class, 'index']);
     });
 });
 
@@ -144,7 +145,7 @@ Route::prefix('unit')->group(function () {
 Route::get('/aksescepat', [HomeController::class, 'showAksesCepat']);
 Route::prefix('berita')->group(function () {
     Route::get('/', [FrontBeritaController::class, 'index']);
-    Route::get('/detail', [FrontBeritaController::class, 'DetailBerita']);
+    Route::get('/detail/{id}', [FrontBeritaController::class, 'DetailBerita']);
 });
 
 //Dashboard
@@ -294,7 +295,6 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/divisi/edit/team/{id}', [AdminDivisiController::class, 'editteam']);
                 Route::post('/divisi/update/team/{id}', [AdminDivisiController::class, 'updateteam']);
 
-
             });
 
             //Akses Cepat
@@ -302,12 +302,24 @@ Route::group(['middleware' => 'auth'], function () {
                 //Aplikasi
                 Route::get('/aplikasi', [AdminSelayangPandangController::class, 'indexaplikasi']);
 
-                //Ekstrakurikuler
+                //Ekstrakurikuler SMA Islam Al-Istiqomah
                 Route::get('/ekskul', [AdminEkstrakurikulerController::class, 'indexekskul']);
                 Route::post('/ekskul/create/', [AdminEkstrakurikulerController::class, 'storeekskul']);
                 Route::get('/ekskul/destroy/{id}', [AdminEkstrakurikulerController::class, 'destroyekskul']);
                 Route::get('/ekskul/edit/{id}', [AdminEkstrakurikulerController::class, 'editekskul']);
                 Route::post('/ekskul/update/{id}', [AdminEkstrakurikulerController::class, 'updateekskul']);
+
+                //Ekstrakurikuler Ekstrakurikuler MTs SA Al-Istiqomah
+                Route::post('/ekskul/create/mts', [AdminEkstrakurikulerController::class, 'storeekskulmts']);
+                Route::get('/ekskul/destroy/mts/{id}', [AdminEkstrakurikulerController::class, 'destroyekskulmts']);
+                Route::get('/ekskul/edit/mts/{id}', [AdminEkstrakurikulerController::class, 'editekskulmts']);
+                Route::post('/ekskul/update/mts/{id}', [AdminEkstrakurikulerController::class, 'updateekskulmts']);
+
+                //Ekstrakurikuler Ekstrakurikuler Pondok Pesantren Al-Istiqomah
+                Route::post('/ekskul/create/pondok', [AdminEkstrakurikulerController::class, 'storeekskulpondok']);
+                Route::get('/ekskul/destroy/pondok/{id}', [AdminEkstrakurikulerController::class, 'destroyekskulpondok']);
+                Route::get('/ekskul/edit/pondok/{id}', [AdminEkstrakurikulerController::class, 'editekskulpondok']);
+                Route::post('/ekskul/update/pondok/{id}', [AdminEkstrakurikulerController::class, 'updateekskulpondok']);
 
                 //Berita
                 Route::get('/berita', [AdminBeritaController::class, 'index']);
@@ -395,56 +407,56 @@ Route::group(['middleware' => 'auth'], function () {
 
             Route::prefix('mts')->group(function () {
                 //Profile SMA
-                Route::get('/', [SmaAdminController::class, 'index']);
-                Route::post('/profile/create/', [SmaAdminController::class, 'store']);
-                Route::get('/profile/destroy/{id}', [SmaAdminController::class, 'destroy']);
-                Route::get('/profile/edit/{id}', [SmaAdminController::class, 'edit']);
-                Route::post('/profile/update/{id}', [SmaAdminController::class, 'update']);
+                Route::get('/', [MtsAdminController::class, 'index']);
+                Route::post('/profile/create/', [MtsAdminController::class, 'store']);
+                Route::get('/profile/destroy/{id}', [MtsAdminController::class, 'destroy']);
+                Route::get('/profile/edit/{id}', [MtsAdminController::class, 'edit']);
+                Route::post('/profile/update/{id}', [MtsAdminController::class, 'update']);
 
                 //Sambutan
-                Route::post('/sambutan/create/', [SmaAdminController::class, 'storesambutan']);
-                Route::get('/sambutan/destroy/{id}', [SmaAdminController::class, 'destroysambutan']);
-                Route::get('/sambutan/edit/{id}', [SmaAdminController::class, 'editsambutan']);
-                Route::post('/sambutan/update/{id}', [SmaAdminController::class, 'updatesambutan']);
+                Route::post('/sambutan/create/', [MtsAdminController::class, 'storesambutan']);
+                Route::get('/sambutan/destroy/{id}', [MtsAdminController::class, 'destroysambutan']);
+                Route::get('/sambutan/edit/{id}', [MtsAdminController::class, 'editsambutan']);
+                Route::post('/sambutan/update/{id}', [MtsAdminController::class, 'updatesambutan']);
 
                 //Visi Misi
-                Route::post('/visimisi/create/', [SmaAdminController::class, 'storevisimisi']);
-                Route::get('/visimisi/destroy/{id}', [SmaAdminController::class, 'destroyvisimisi']);
-                Route::get('/visimisi/edit/{id}', [SmaAdminController::class, 'editvisimisi']);
-                Route::post('/visimisi/update/{id}', [SmaAdminController::class, 'updatevisimisi']);
+                Route::post('/visimisi/create/', [MtsAdminController::class, 'storevisimisi']);
+                Route::get('/visimisi/destroy/{id}', [MtsAdminController::class, 'destroyvisimisi']);
+                Route::get('/visimisi/edit/{id}', [MtsAdminController::class, 'editvisimisi']);
+                Route::post('/visimisi/update/{id}', [MtsAdminController::class, 'updatevisimisi']);
 
                 //Organigram
-                Route::post('/organigram/create', [SmaAdminController::class, 'storestruktur']);
-                Route::get('/organigram/destroy/{id}', [SmaAdminController::class, 'destroystruktur']);
-                Route::get('/organigram/edit/{id}', [SmaAdminController::class, 'editstruktur']);
-                Route::post('/organigram/update/{id}', [SmaAdminController::class, 'updatestruktur']);
+                Route::post('/organigram/create', [MtsAdminController::class, 'storestruktur']);
+                Route::get('/organigram/destroy/{id}', [MtsAdminController::class, 'destroystruktur']);
+                Route::get('/organigram/edit/{id}', [MtsAdminController::class, 'editstruktur']);
+                Route::post('/organigram/update/{id}', [MtsAdminController::class, 'updatestruktur']);
             });
 
             Route::prefix('ra')->group(function () {
                 //Profile SMA
-                Route::get('/', [SmaAdminController::class, 'index']);
-                Route::post('/profile/create/', [SmaAdminController::class, 'store']);
-                Route::get('/profile/destroy/{id}', [SmaAdminController::class, 'destroy']);
-                Route::get('/profile/edit/{id}', [SmaAdminController::class, 'edit']);
-                Route::post('/profile/update/{id}', [SmaAdminController::class, 'update']);
+                Route::get('/', [RaAdminController::class, 'index']);
+                Route::post('/profile/create/', [RaAdminController::class, 'store']);
+                Route::get('/profile/destroy/{id}', [RaAdminController::class, 'destroy']);
+                Route::get('/profile/edit/{id}', [RaAdminController::class, 'edit']);
+                Route::post('/profile/update/{id}', [RaAdminController::class, 'update']);
 
                 //Sambutan
-                Route::post('/sambutan/create/', [SmaAdminController::class, 'storesambutan']);
-                Route::get('/sambutan/destroy/{id}', [SmaAdminController::class, 'destroysambutan']);
-                Route::get('/sambutan/edit/{id}', [SmaAdminController::class, 'editsambutan']);
-                Route::post('/sambutan/update/{id}', [SmaAdminController::class, 'updatesambutan']);
+                Route::post('/sambutan/create/', [RaAdminController::class, 'storesambutan']);
+                Route::get('/sambutan/destroy/{id}', [RaAdminController::class, 'destroysambutan']);
+                Route::get('/sambutan/edit/{id}', [RaAdminController::class, 'editsambutan']);
+                Route::post('/sambutan/update/{id}', [RaAdminController::class, 'updatesambutan']);
 
                 //Visi Misi
-                Route::post('/visimisi/create/', [SmaAdminController::class, 'storevisimisi']);
-                Route::get('/visimisi/destroy/{id}', [SmaAdminController::class, 'destroyvisimisi']);
-                Route::get('/visimisi/edit/{id}', [SmaAdminController::class, 'editvisimisi']);
-                Route::post('/visimisi/update/{id}', [SmaAdminController::class, 'updatevisimisi']);
+                Route::post('/visimisi/create/', [RaAdminController::class, 'storevisimisi']);
+                Route::get('/visimisi/destroy/{id}', [RaAdminController::class, 'destroyvisimisi']);
+                Route::get('/visimisi/edit/{id}', [RaAdminController::class, 'editvisimisi']);
+                Route::post('/visimisi/update/{id}', [RaAdminController::class, 'updatevisimisi']);
 
                 //Organigram
-                Route::post('/organigram/create', [SmaAdminController::class, 'storestruktur']);
-                Route::get('/organigram/destroy/{id}', [SmaAdminController::class, 'destroystruktur']);
-                Route::get('/organigram/edit/{id}', [SmaAdminController::class, 'editstruktur']);
-                Route::post('/organigram/update/{id}', [SmaAdminController::class, 'updatestruktur']);
+                Route::post('/organigram/create', [RaAdminController::class, 'storestruktur']);
+                Route::get('/organigram/destroy/{id}', [RaAdminController::class, 'destroystruktur']);
+                Route::get('/organigram/edit/{id}', [RaAdminController::class, 'editstruktur']);
+                Route::post('/organigram/update/{id}', [RaAdminController::class, 'updatestruktur']);
             });
 
             //Contact

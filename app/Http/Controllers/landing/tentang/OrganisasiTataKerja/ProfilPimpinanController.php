@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landing\tentang\OrganisasiTataKerja;
 
 use App\Http\Controllers\Controller;
+use App\ModelBiografiPimpinan;
 use Illuminate\Http\Request;
 
 class ProfilPimpinanController extends Controller
@@ -14,7 +15,8 @@ class ProfilPimpinanController extends Controller
      */
     public function index()
     {
-        return view('home.tentang.organisasi.profil');
+        $profil = ModelBiografiPimpinan::first();
+        return view('home.tentang.organisasi.profil', compact("profil"));
     }
 
     /**
