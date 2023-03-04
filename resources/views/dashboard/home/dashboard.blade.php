@@ -106,6 +106,14 @@
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>
+                                            <div class="form-group">
+                                                <label>TikTok</label>
+                                                <input class="form-control @error('tiktok') is-invalid @enderror"
+                                                    name="tiktok" placeholder="Enter..." value="">
+                                                @error('tiktok')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary btn-sm"
                                                     data-dismiss="modal">Tutup</button>
@@ -141,6 +149,9 @@
                                         <th>
                                             Youtube
                                         </th>
+                                        <th>
+                                            Tiktok
+                                        </th>
                                         <th style="width: 15%">
                                             Aksi
                                         </th>
@@ -166,6 +177,9 @@
                                             </td>
                                             <td>
                                                 {{ $data->youtube }}
+                                            </td>
+                                            <td>
+                                                {{ $data->tiktok }}
                                             </td>
                                             <td class="project-actions text-center">
                                                 <!-- Button trigger modal -->
@@ -248,6 +262,16 @@
                                                                             placeholder="Enter..."
                                                                             value="{{ $data->youtube }}">
                                                                         @error('youtube')
+                                                                            <div class="invalid-feedback">{{ $message }}
+                                                                            </div>
+                                                                        @enderror
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>TikTok</label>
+                                                                        <input class="form-control" name="tiktok"
+                                                                            placeholder="Enter..."
+                                                                            value="{{ $data->tiktok }}">
+                                                                        @error('tiktok')
                                                                             <div class="invalid-feedback">{{ $message }}
                                                                             </div>
                                                                         @enderror

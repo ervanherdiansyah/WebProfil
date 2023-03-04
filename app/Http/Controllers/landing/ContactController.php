@@ -5,6 +5,8 @@ namespace App\Http\Controllers\landing;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\ModelAdminContact;
+use App\ModelFAQ;
 
 class ContactController extends Controller
 {
@@ -15,7 +17,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('home.contact.index');
+        $contacts = ModelAdminContact::get();
+        $faqs = ModelFAQ::get();
+        return view('home.contact.index', compact('contacts', 'faqs'));
     }
 
     /**

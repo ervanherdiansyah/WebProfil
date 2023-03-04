@@ -43,7 +43,8 @@ class HomeController extends Controller
         $alumi = ModelAlumi::get();
         $logo = ModelLogo::get();
         $program = ModelProgramUnggulan::get();
-        return view('home.index',compact('home','program','header','kotak','berita','kategori','background','sambutan','pdmts','pdsma','pdpesantren','alumi','logo'));
+        $socials = ModelHeader::first();
+        return view('home.index',compact('home','program','header','kotak','berita','kategori','background','sambutan','pdmts','pdsma','pdpesantren','alumi','logo', 'socials'));
     }
 
     public function showMaintenance()

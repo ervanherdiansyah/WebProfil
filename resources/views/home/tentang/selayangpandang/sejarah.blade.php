@@ -18,19 +18,27 @@
                     <img src="{{ asset('assets/img/blog/blog-1.jpg') }}" alt="" class="img-fluid">
                   </div> -->
 
-                        <h2 class="title">{{ $sejarah->heading }}</h2>
+                        <h2 class="title">{{ $sejarah->heading }}</h2><br>
+                        <div class="text-center">
 
-                        <div class="meta-top">
+                            <img src="{{ asset('storage/' . $sejarah->gambar) }}" alt="" class="rounded">
+                        </div>
+
+                        <!-- <div class="meta-top">
                             <ul>
                                 <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
                                         href="blog-details.html">John Doe</a></li>
                                 <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
                                         href="blog-details.html"><time datetime="2020-01-01">Jan 1, 2022</time></a></li>
                             </ul>
-                        </div><!-- End meta top -->
+                        </div> -->
+                        <!-- End meta top -->
 
                         <div class="content">
-                            {!! $sejarah->deskripsi !!}
+                            <div style="text-align: justify;">
+                                {!! $sejarah->deskripsi !!}
+
+                            </div>
 
                         </div><!-- End post content -->
 

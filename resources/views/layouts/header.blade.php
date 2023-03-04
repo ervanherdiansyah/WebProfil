@@ -1,16 +1,21 @@
 <section id="topbar" class="topbar d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
+      @php
+        $data = App\ModelHeader::first();
+      @endphp
+      <!-- @foreach(\App\ModelHeader::all() as $sosmed) -->
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">hendrayna55@gmail.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+62 815-2194-1914</span></i>
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">{{$data->email}}</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>{{$data->nohp}}</span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
-        <a href="https://www.youtube.com/@isteqmediachannel5901" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="https://www.facebook.com/amtsilatialistiqomah" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/isteqamtsilati" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.youtube.com/@isteqmediachannel5901" target="_blank" class="youtube"><i class="bi bi-youtube"></i></a>
-        <a href="https://www.tiktok.com/@isteqamtsilati" target="_blank" class="tiktok"><i class="bi bi-tiktok"></i></a>
+        <a href="{{$data->twiter}}" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="{{$data->facebook}}" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="{{$data->instagram}}" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="{{$data->youtube}}" target="_blank" class="youtube"><i class="bi bi-youtube"></i></a>
+        <a href="{{$data->tiktok}}" target="_blank" class="tiktok"><i class="bi bi-tiktok"></i></a>
       </div>
+      <!-- @endforeach -->
     </div>
   </section><!-- End Top Bar -->
 

@@ -186,6 +186,7 @@ class DashboardController extends Controller
             'facebook' => 'required',
             'instagram' => 'required',
             'youtube' => 'required',
+            'tiktok' => 'required',
         ], [
             'email.required' => 'Wajib diisi!!!',
             'nohp.required' => 'Wajib diisi!!!',
@@ -193,6 +194,7 @@ class DashboardController extends Controller
             'facebook.required' => 'Wajib diisi!!!',
             'instagram.required' => 'Wajib diisi!!!',
             'youtube.required' => 'Wajib diisi!!!',
+            'tiktok.required' => 'Wajib diisi!!!',
         ]);
 
         ModelHeader::create([
@@ -202,6 +204,7 @@ class DashboardController extends Controller
             'facebook' => $request->facebook,
             'instagram' => $request->instagram,
             'youtube' => $request->youtube,
+            'tiktok' => $request->tiktok,
         ]);
         Alert::success('Data berhasil ditambahkan', 'Success Message');
         return redirect("/admin/dashboard");
@@ -245,6 +248,7 @@ class DashboardController extends Controller
             'facebook' => 'required',
             'instagram' => 'required',
             'youtube' => 'required',
+            'tiktok' => 'required',
         ], [
             'email.required' => 'Wajib diisi!!!',
             'nohp.required' => 'Wajib diisi!!!',
@@ -252,6 +256,7 @@ class DashboardController extends Controller
             'facebook.required' => 'Wajib diisi!!!',
             'instagram.required' => 'Wajib diisi!!!',
             'youtube.required' => 'Wajib diisi!!!',
+            'tiktok.required' => 'Wajib diisi!!!',
         ]);
 
         $data = [
@@ -261,6 +266,7 @@ class DashboardController extends Controller
             'facebook' => $request->facebook,
             'instagram' => $request->instagram,
             'youtube' => $request->youtube,
+            'tiktok' => $request->tiktok,
         ];
         ModelHeader::find($id)->update($data);
         
